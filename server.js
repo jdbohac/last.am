@@ -32,7 +32,13 @@ app.get('/last.am/show/:id', (req, res) => {
     
 })
 
-
+app.get('/last.am/comment/:id', (req,res) => {
+  GameDB.findById(req.params.id).then((data) => {
+    res.render('new_comment.ejs',{
+      data
+    })
+  })
+})
 
 
 

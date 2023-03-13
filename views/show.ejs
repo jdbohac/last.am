@@ -13,9 +13,9 @@
     <section>
     <div class="container is-flex is-align-items-center">
     <div class="columns is-5">
-    <div class="column is-4">
+    <div class="">
         <figure>
-            <img class="image show-img" src="<%=data.titleScreen%>">
+            <img class="image show-img"  src="<%=data.titleScreen%>">
         </figure>
         <figure>
             <img class="image show-img my-2" src="<%=data.gameScreen%>" alt="">
@@ -28,14 +28,20 @@
         <p class="is-size-5 mb-2"><%=data.dev%></p>
         <h1 class="is-size-5 mt-2">Release Year:</h1><br>
         <p class="is-size-5 mb-2"><%=data.year%></p>
+        <div class="" style="max-height: 15rem; overflow: scroll; grid-area: 3/6/12/6;">
+          <p><%=data.synopsis%></p>
+        </div>
     </div>
+    
     <div class="column is-4">
         <div class="has-text-centered">
         <% if(data.comments.length > 0){%>
         <%for(let i=data.comments.length -1; i>=0; i--){%>
         <p><%=data.comments[i]%></p>
         <%}}%>
-        <input type="button" value="Add Scrobble">
+        <a href="/last.am/comment/<%=data._id%>">
+        <input class="button" type="button" value="Add Scrobble">
+        </a>
         </div>
     </div>
     </div>
