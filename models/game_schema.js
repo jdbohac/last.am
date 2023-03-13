@@ -15,3 +15,6 @@ const gameSchema = Schema(
     comments:['']
     }
 )
+
+const gameDB = mongoose.model('GameDB', gameSchema)
+module.exports = gameDB
