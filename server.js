@@ -42,7 +42,11 @@ app.get('/last.am/comment/:id', (req,res) => {
 
 
 
-
+app.put('/last.am/comment/:id', (req, res) => {
+  GameDB.findByIdAndUpdate(req.params.id,{$push:req.body}).then((data) => {
+    res.redirect(`/last.am/show/${req.params.id}`)
+  })
+})
 
 
 // app.get('/seed', (req, res) => {

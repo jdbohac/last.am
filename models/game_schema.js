@@ -13,7 +13,7 @@ const gameSchema = Schema(
     gameScreen:String,
     playTimeMinutes:{type:Number,min:0},
     playTimeHours:{type:Number,min:0},
-    comments:['']
+    comments:[String]
     }
 )
 
