@@ -20,12 +20,16 @@ app.get('/last.am', (req, res) => {
     res.render('index.ejs',{
       data
     })
-  
 })
 })
 
 app.get('/last.am/show/:id', (req, res) => {
-    res.send(`<h1>game details page</h1>`)
+  GameDB.findById(req.params.id).then((data) => {
+    res.render('show.ejs',{
+      data
+    })
+  })
+    
 })
 
 

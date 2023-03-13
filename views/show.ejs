@@ -8,6 +8,38 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 class="is-size-1">Last.am</h1>
+    <h1 class="has-background-grey-lighter is-size-1 has-text-centered">Last.am</h1>
+    <h2 class="is-size-3 has-text-centered my-5"><%=data.gameName%></h2>
+    <section>
+    <div class="container is-flex is-align-items-center">
+    <div class="columns is-5">
+    <div class="column is-4">
+        <figure>
+            <img class="image show-img" src="<%=data.titleScreen%>">
+        </figure>
+        <figure>
+            <img class="image show-img my-2" src="<%=data.gameScreen%>" alt="">
+        </figure>
+        </div>
+    <div class="column is-3 has-text-centered">
+        <h1 class="is-size-5 mt-2">Publisher:</h1><br>
+        <p class="is-size-5 mb-2"><%=data.pub%></p>
+        <h1 class="is-size-5 mt-2">Developer:</h1><br>
+        <p class="is-size-5 mb-2"><%=data.dev%></p>
+        <h1 class="is-size-5 mt-2">Release Year:</h1><br>
+        <p class="is-size-5 mb-2"><%=data.year%></p>
+    </div>
+    <div class="column is-4">
+        <div class="has-text-centered">
+        <% if(data.comments.length > 0){%>
+        <%for(let i=data.comments.length -1; i>=0; i--){%>
+        <p><%=data.comments[i]%></p>
+        <%}}%>
+        <input type="button" value="Add Scrobble">
+        </div>
+    </div>
+    </div>
+    </div>
+    </section>
 </body>
 </html>

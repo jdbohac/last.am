@@ -8,6 +8,7 @@ const gameSchema = Schema(
     pub:String,
     year:String,
     genre:String,
+    synopsis:String,
     titleScreen:String,
     gameScreen:String,
     playTimeMinutes:{type:Number,min:0},
