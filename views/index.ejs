@@ -7,7 +7,41 @@
     <link rel="stylesheet" href="/css/main.css">
     <title>Document</title>
 </head>
-<body>
-    <h1 class="is-size-1">Hello Bulma!</h1>
+<body class="has-background-grey-lighter">
+    <h1 class="is-size-1 has-text-centered">Last.am</h1>
+    <section>
+    <div class="container">
+    <table class="table is-striped is-narrow is-fullwidth is-hoverable">
+        <thead>
+            <th>Screenshot</th>
+            <th>Title</th>
+            <th>Publisher</th>
+            <th>Year</th>
+        </thead>
+    <%for (let i=data.length -1;i>=0;i--){%>
+            <tr>
+                <td>
+                  <a href="/last.am/show/<%=data[i]._id%>">
+                        <figure > 
+                            <img class="image is-128x128 p-2" src="<%=data[i].gameScreen%>">
+                        </figure>
+                    </a>
+                </td>
+                <td>
+                    <a href="/last.am/show/<%=data[i]._id%>">
+                        <%=data[i].gameName%>
+                    </a>
+                </td>
+                <td>
+                    <%=data[i].pub%>
+                </td>
+                <td>
+                    <%=data[i].year%>
+                </td>
+            </tr>
+    <%}%>
+    </table>
+    </div>
+    </section>
 </body>
 </html>

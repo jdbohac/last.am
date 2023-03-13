@@ -16,7 +16,12 @@ app.listen(3000, () => {
 })
 
 app.get('/last.am', (req, res) => {
-  res.render('index.ejs')
+  GameDB.find({}).then((data) => {
+    res.render('index.ejs',{
+      data
+    })
+  
+})
 })
 
 app.get('/last.am/show/:id', (req, res) => {
