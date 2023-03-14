@@ -14,9 +14,9 @@
   <h1 class="is-size-2 has-text-centered my-2">How long did you play <br> <%=data.gameName%>?</h1>
 
   <div class="container mt-6">
-    <form class="is-medium" action="/last.am/log_time/<%=data._id%>?_method=PUT" method="POST">
-    <input type="number" name="playTimeHours" />
-      <input type="number" name="playTimeMinutes" />
+    <form class="is-medium" action="/last.am/log_time/<%=data._id%>" method="POST">
+    <input type="number" placeholder="Hours" value="0" name="playTimeHours" />
+      <input type="number" placeholder="minutes" value="0" name="playTimeMinutes" />
       <input class="button" type="submit" value="Log Time">
     </form>
   </div>

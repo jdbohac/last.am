@@ -51,18 +51,36 @@ app.get('/last.am/comment/:id', (req,res) => {
     })
   })
 })
+//render time log page
+app.get('/last.am/log_time/:id', (req, res) => {
+  GameDB.findById(req.params.id).then((data) => {
+    res.render('log_time.ejs',{data})
+  })
+})
+
 
 //start action routes
 
 //converts logged minutes to hours for /show route
 app.use('/last.am/show/:id', (req, res) => {
-  GameDB.findById(req.params.id).then((data) => {
-    while (data.playTimeMinutes >= 60){
-      data.playTimeMinutes -= 60
-      data.playTimeHours ++
+GameDB.findById(req.params.id).then((data) => {
+  
+  while (data.playTimeMinutes >= 60) {
+  GameDB.findByIdAndUpdate(req.params.id,{$inc:{playTimeHours:1,playTimeMinutes:-60}}).then((data2) => {
+    console.log(data2)
+  })
     }
+  }).catch((error) => {
+    console.log(error)
   })
 })
+//adds time to log in hours/minutes
+app.post('/last.am/log_time/:id', (req, res) => {
+  GameDB.findByIdAndUpdate(req.params.id, {$inc:{playTimeHours:req.body.playTimeHours, playTimeMinutes:req.body.playTimeMinutes}}).then((data) => {
+    res.redirect(`/last.am/show/${req.params.id}`)
+  })
+})
+//add game to db
 app.post('/last.am/add_game', (req, res) => {
   GameDB.create(req.body).then((data) => {
     res.redirect('/last.am')
@@ -80,6 +98,7 @@ app.post('/last.am/delete_comment/:id/:index', (req, res) => {
     console.log(error)
   })
 })
+//edit game details and update db
 app.put('/last.am/edit_game/:id', (req, res) => {
   GameDB.findByIdAndUpdate(req.params.id, req.body).then((data) => {
     res.redirect(`/last.am/show/${req.params.id}`)
