@@ -8,12 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="hero has-background-grey-lighter">
-    <h1 class="is-size-1 has-text-centered">Last.am</h1>
-    <nav>
-       <a href="/last.am"><input type="button" value="home"></a>
-    </nav>
-    </div>
+    <%-  include('./partials/header.ejs')%>
     <h2 class="is-size-3 has-text-centered my-5"><%=data.gameName%></h2>
     <section>
     <div class="container is-flex is-align-items-center">
@@ -37,10 +32,11 @@
           <p><%=data.synopsis%></p>
         </div>
     </div>
-    
-    <% if(data.comments.length > 0){%>
     <div class="column is-3">
-        <div class="p-2" style="max-height:20rem;border: 2px solid grey; overflow-y: scroll; border-radius: 7px;">
+    <h1>Total play time:</h1>
+    <p><%=data.playTimeHours%> hours and <%=data.playTimeMinutes%> minutes</p>
+    <% if(data.comments.length > 0){%>
+        <div class="p-2" style="max-height:20rem;border: 2px solid grey; overflow-y: scroll; border-radius: 7px;background-color: rgba(203, 231, 216, 0.812);">
         <%for(let i=data.comments.length -1; i>=0; i--){%>
         <h1 class="mt-2" style="text-decoration: underline;">You said:</h1>
         <p class="my-3"><%=data.comments[i]%></p>

@@ -16,7 +16,7 @@ app.listen(3000, () => {
 })
 
 app.get('/last.am', (req, res) => {
-  GameDB.find({}).then((data) => {
+  GameDB.find({}).sort({gameName:-1}).then((data) => {
     res.render('index.ejs',{
       data
     })
@@ -40,7 +40,14 @@ app.get('/last.am/comment/:id', (req,res) => {
   })
 })
 
-
+app.use('/last.am/show/:id', (req, res) => {
+  GameDB.findById(req.params.id).then((data) => {
+    while (data.playTimeMinutes >= 60){
+      data.playTimeMinutes -= 60
+      data.playTimeHours ++
+    }
+  })
+})
 app.post('/last.am/delete_comment/:id/:index', (req, res) => {
   GameDB.findByIdAndUpdate(req.params.id, { $pull:{comments:`${req.params.index}`}}).then((err,data) =>{
     

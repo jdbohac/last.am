@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Last.am | Add New Game</title>
+</head>
+<body>
+<%-  include('./partials/header.ejs')%>
+    <form class="form" action="/last.am/add_game">
+    <input type="text" name="gameName" placeholder="Name of game">
+    <input type="text" name="pub" placeholder="Publisher">
+    <input type="text" name="dev" placeholder="Developer">
+    <input type="text" name="year" placeholder="Year of release">
+    <input type="text" name="titleScreen" placeholder="Title screen img URL">
+    <input type="text" name="gameScreen" placeholder="Gameplay screenshot URL">
+    <textarea type="text" name="synopsis" placeholder="Write a synopsis for the game"></textarea>
+    </form>
+</body>
+</html>

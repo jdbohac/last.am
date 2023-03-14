@@ -11,8 +11,8 @@ const gameSchema = Schema(
     synopsis:String,
     titleScreen:String,
     gameScreen:String,
-    playTimeMinutes:{type:Number,min:0},
-    playTimeHours:{type:Number,min:0},
+    playTimeMinutes:{type:Number,min:0, default:0},
+    playTimeHours:{type:Number,min:0, default:0},
     comments:[String]
     }
 )
