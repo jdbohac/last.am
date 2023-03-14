@@ -15,6 +15,21 @@ app.listen(3000, () => {
   console.log('port 3000 awaiting orders')
 })
 
+//middleware
+//converts logged minutes to hours for /show route
+app.use('/last.am/show/:id', (req, res, next) => {
+  GameDB.findById(req.params.id).then((data) => {
+
+    for (let i = data.playTimeMinutes; i > 59; i -= 60) {
+      GameDB.findByIdAndUpdate(req.params.id, { $inc: { playTimeHours: 1, playTimeMinutes: -60 } }).then((data1) => {
+      })
+    }
+    next()
+  }).catch((error) => {
+    console.log(error)
+  })
+})
+
 //start render routes
 
 //main page, displays all games in db
@@ -25,21 +40,6 @@ app.get('/last.am', (req, res) => {
     })
 })
 })
-
-//converts logged minutes to hours for /show route
-app.use('/last.am/show/:id', (req, res, next) => {
-  GameDB.findById(req.params.id).then((data) => {
-
-    for (let i = data.playTimeMinutes; i >= 60; i -= 60) {
-      GameDB.findByIdAndUpdate(req.params.id, { $inc: { playTimeHours: 1, playTimeMinutes: -60 } }).then((data1) => {
-      })
-    }
-    next()
-  }).catch((error) => {
-    console.log(error)
-  })
-})
-
 //render /show page with game id
 app.get('/last.am/show/:id', (req, res, next) => {
   GameDB.findById(req.params.id).then((data) => {

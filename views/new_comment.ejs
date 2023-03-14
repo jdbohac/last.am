@@ -11,10 +11,10 @@
 <%-  include('./partials/header.ejs')%>
 <h1 class="is-size-2 has-text-centered my-2">What do you think of<br> <%=data.gameName%>?</h1>
 
-<div class="container mt-6">
+<div class="container column is-9 mt-6">
     <form class="is-large" action="/last.am/comment/<%=data._id%>?_method=PUT" method="POST">
     <textarea class="input is-primary" placeholder="Your Thoughts here!" style="height: 10rem;" name="comments"></textarea>
-    <input class="button" type="submit" value="Add Comment">
+    <input class="button m-2" type="submit" value="Add Comment">
     </form>
 </div>
     
