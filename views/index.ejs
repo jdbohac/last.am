@@ -10,14 +10,14 @@
 <body>
     <%-  include('./partials/header.ejs')%>
     <section>
-    <div class="container-fluid column">
-    <table class="table is-striped is-hoverable is-fullwidth is-mobile mt-4 has-background-danger-light">
+    <div class="container">
+    <table class="table is-narrow is-striped is-hoverable is-fullwidth is-mobile mt-4 has-background-danger-light">
     <%for (let i=data.length -1;i>=0;i--){%>
             <tr>
-                <td>
+                <td valign="middle" align="center">
                   <a href="/last.am/show/<%=data[i]._id%>">
-                        <div class="container">
-                            <img class="image is-128x128"  src=" <%=data[i].gameScreen%>">
+                        <div class="container is-flex">
+                            <img class="image is-128x128" src=" <%=data[i].gameScreen%>">
                         </div>
                     </a>
                 </td>
