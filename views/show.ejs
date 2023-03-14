@@ -12,7 +12,7 @@
     <h2 class="is-size-3 has-text-centered my-5"><%=data.gameName%></h2>
     <section>
     <div class="container is-flex is-align-items-center">
-    <div class="columns is-5 is-multiline">
+    <div class="columns">
     <div class="column is-4" >
         <figure>
             <img class="image show-img" src="<%=data.titleScreen%>">
@@ -22,17 +22,17 @@
         </figure>
         </div>
     <div class="column is-4 has-text-centered">
+        <h1 class="is-size-5 mt-2">Genre:</h1><br>
+        <p class="is-size-6 mb-4 has-text-primary-light"><%=data.genre%></p>
         <h1 class="is-size-5 mt-2">Publisher:</h1><br>
-        <p class="is-size-5 mb-2"><%=data.pub%></p>
+        <p class="is-size-6 mb-4 has-text-primary-light"><%=data.pub%></p>
         <h1 class="is-size-5 mt-2">Developer:</h1><br>
-        <p class="is-size-5 mb-2"><%=data.dev%></p>
+        <p class="is-size-6 mb-4 has-text-primary-light"><%=data.dev%></p>
         <h1 class="is-size-5 mt-2">Release Year:</h1><br>
-        <p class="is-size-5 mb-2"><%=data.year%></p>
-        <div class="" style="max-height: 15rem; overflow-y: scroll; grid-area: 3/6/3/12;">
-          <p><%=data.synopsis%></p>
-        </div>
-    </div>
-    <div class="column is-3">
+        <p class="is-size-6 mb-4 has-text-primary-light"><%=data.year%></p>
+        
+    </div>    
+    <div class="column is-3" style="max-height:22rem">
     <h1>Total play time:</h1>
     <p><%=data.playTimeHours%> hours and <%=data.playTimeMinutes%> minutes</p>
     <% if(data.comments.length > 0){%>
@@ -54,5 +54,13 @@
     </div>
     </div>
     </section>
+    <div class="columns">
+    <div class="mt-6 column is-7 is-offset-4" style="max-height: 15em; overflow-y: scroll;background-color: rgba(203, 231, 216, 0.812);">
+      <p><%=data.synopsis%></p>
+    </div>
+    </div>
+    <a href="/last.am/edit/<%=data._id%>">
+      <input class="button m-5" type="button" value="Edit Entry">
+    </a>
 </body>
 </html>

@@ -1,9 +1,20 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
 body{
-background-color: rgb(218, 158, 158);
+background-color: rgb(251, 120, 120);
 min-height:100svh
 }
 .button{
 background-color:rgb(155, 213, 226);
+}
+div::-webkit-scrollbar{
+display:none
+}
+div {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+a{
+    text-decoration: none;
+    color:black
 }

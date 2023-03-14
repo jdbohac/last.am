@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const gameSchema = Schema(
     {
-    gameName:{type:String,required:true},
+    gameName:{type:String, required:true},
     dev:String,
     pub:String,
     year:String,

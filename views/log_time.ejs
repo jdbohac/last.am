@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <%-  include('./partials/header.ejs')%>
+  <h1 class="is-size-2 has-text-centered my-2">How long did you play <br> <%=data.gameName%>?</h1>
+
+  <div class="container mt-6">
+    <form class="is-medium" action="/last.am/log_time/<%=data._id%>?_method=PUT" method="POST">
+    <input type="number" name="playTimeHours" />
+      <input type="number" name="playTimeMinutes" />
+      <input class="button" type="submit" value="Log Time">
+    </form>
+  </div>
+
+</body>
+
+</html>
