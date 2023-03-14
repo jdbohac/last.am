@@ -13,7 +13,7 @@
     <section>
     <div class="container is-flex is-align-items-center">
     <div class="columns">
-    <div class="column is-4" >
+    <div class="column is-4" style="min-height:30rem;" >
         <figure>
             <img class="image show-img" src="<%=data.titleScreen%>">
         </figure>
@@ -30,9 +30,14 @@
         <p class="is-size-6 mb-4 has-text-primary-light"><%=data.dev%></p>
         <h1 class="is-size-5 mt-2">Release Year:</h1><br>
         <p class="is-size-6 mb-4 has-text-primary-light"><%=data.year%></p>
-        
+        <div class="mt-6 column" style="max-height: 12rem;overflow-y: scroll;background-color: rgba(203, 231, 216, 0.812);border: 2px solid grey; border-radius: 7px;">
+          <p><%=data.synopsis%></p>
+        </div>
+        <a href="/last.am/edit/<%=data._id%>">
+          <input class="button m-5" type="button" value="Edit Entry">
+        </a>
     </div>    
-    <div class="column is-3" style="max-height:22rem">
+    <div class="column is-3" style="max-height:25rem">
     <h1>Total play time:</h1>
     <p><%=data.playTimeHours%> hours and <%=data.playTimeMinutes%> minutes</p>
     <% if(data.comments.length > 0){%>
@@ -47,21 +52,13 @@
         </div>
         <%}%>
         <a href="/last.am/comment/<%=data._id%>">
-          <input class="button my-2" type="button" value="Add Comment">
+          <input class="button my-2 is-small" type="button" value="Comment">
         </a>
-        <a href="/last.am/log_time/<%=data._id%>"><input class="button m-2" type="button" value="log time" /></a>
+        <a href="/last.am/log_time/<%=data._id%>"><input class="button m-2 is-small" type="button" value="log time" /></a>
         
     </div>
     </div>
     </div>
     </section>
-    <div class="columns">
-    <div class="mt-6 column is-7 is-offset-4" style="max-height: 15em; overflow-y: scroll;background-color: rgba(203, 231, 216, 0.812);">
-      <p><%=data.synopsis%></p>
-    </div>
-    </div>
-    <a href="/last.am/edit/<%=data._id%>">
-      <input class="button m-5" type="button" value="Edit Entry">
-    </a>
 </body>
 </html>

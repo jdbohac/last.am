@@ -25,12 +25,29 @@ app.get('/last.am', (req, res) => {
     })
 })
 })
-//render show page with game id
-app.get('/last.am/show/:id', (req, res) => {
+
+//converts logged minutes to hours for /show route
+app.use('/last.am/show/:id', (req, res, next) => {
+  GameDB.findById(req.params.id).then((data) => {
+
+    for (let i = data.playTimeMinutes; i >= 60; i -= 60) {
+      GameDB.findByIdAndUpdate(req.params.id, { $inc: { playTimeHours: 1, playTimeMinutes: -60 } }).then((data1) => {
+      })
+    }
+    next()
+  }).catch((error) => {
+    console.log(error)
+  })
+})
+
+//render /show page with game id
+app.get('/last.am/show/:id', (req, res, next) => {
   GameDB.findById(req.params.id).then((data) => {
     res.render('show.ejs',{
       data
     })
+  }).catch((error) => {
+    console.log(error)
   })
 })
 //render form to add new game to db
@@ -61,22 +78,12 @@ app.get('/last.am/log_time/:id', (req, res) => {
 
 //start action routes
 
-//converts logged minutes to hours for /show route
-app.use('/last.am/show/:id', (req, res) => {
-GameDB.findById(req.params.id).then((data) => {
-  
-  while (data.playTimeMinutes >= 60) {
-  GameDB.findByIdAndUpdate(req.params.id,{$inc:{playTimeHours:1,playTimeMinutes:-60}}).then((data2) => {
-    console.log(data2)
-  })
-    }
-  }).catch((error) => {
-    console.log(error)
-  })
-})
+
 //adds time to log in hours/minutes
 app.post('/last.am/log_time/:id', (req, res) => {
-  GameDB.findByIdAndUpdate(req.params.id, {$inc:{playTimeHours:req.body.playTimeHours, playTimeMinutes:req.body.playTimeMinutes}}).then((data) => {
+  GameDB.findByIdAndUpdate(req.params.id, 
+  {$inc:{playTimeHours:req.body.playTimeHours,
+    playTimeMinutes:req.body.playTimeMinutes}}).then((data) => {
     res.redirect(`/last.am/show/${req.params.id}`)
   })
 })
@@ -92,10 +99,17 @@ app.post('/last.am/add_game', (req, res) => {
 })
 //delete comments individually
 app.post('/last.am/delete_comment/:id/:index', (req, res) => {
-  GameDB.findByIdAndUpdate(req.params.id, { $pull:{comments:`${req.params.index}`}}).then((err,data) =>{
+  GameDB.findByIdAndUpdate(req.params.id, 
+  { $pull:{comments:`${req.params.index}`}}).then((err,data) =>{
     res.redirect(`/last.am/show/${req.params.id}`)
   }).catch((error) => {
     console.log(error)
+  })
+})
+//delete db entry from /edit page
+app.delete('/last.am/edit/:id', (req, res) => {
+  GameDB.findByIdAndRemove(req.params.id).then((data) => {
+    res.redirect('/last.am')
   })
 })
 //edit game details and update db
@@ -121,3 +135,4 @@ app.put('/last.am/comment/:id', (req, res) => {
 //     res.send(data)
 //   })
 // })
+
