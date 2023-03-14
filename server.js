@@ -41,16 +41,26 @@ app.get('/last.am/comment/:id', (req,res) => {
 })
 
 
-
+app.post('/last.am/delete_comment/:id/:index', (req, res) => {
+  GameDB.findByIdAndUpdate(req.params.id, { $pull:{comments:`${req.params.index}`}}).then((err,data) =>{
+    
+    res.redirect(`/last.am/show/${req.params.id}`)
+    
+  }).catch((error) => {
+    console.log(error)
+  })
+  })
 app.put('/last.am/comment/:id', (req, res) => {
   GameDB.findByIdAndUpdate(req.params.id,{$push:req.body}).then((data) => {
     res.redirect(`/last.am/show/${req.params.id}`)
+  }).catch((error) => {
+    console.log(error)
   })
 })
 
 
-// app.get('/seed', (req, res) => {
-//   GameDB.create(seedDB).then((data) => {
-//     res.send(data)
-//   })
-// })
+app.get('/seed', (req, res) => {
+  GameDB.create(seedDB).then((data) => {
+    res.send(data)
+  })
+})
