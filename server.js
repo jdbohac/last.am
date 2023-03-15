@@ -42,7 +42,7 @@ app.get('/last.am', (req, res) => {
 })
 })
 //render /show page with game id
-app.get('/last.am/show/:id', (req, res) => {
+app.get('/last.am/show/:id', (req, res,next) => {
   GameDB.findById(req.params.id).then((data) => {
     res.render('show.ejs',{
       data

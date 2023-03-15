@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="/css/main.css">
     <title>Document</title>
 </head>
-<body><div>
+<body>
     <%-  include('./partials/header.ejs')%>
-    </div>
+    
+    <section style="margin-top:4rem;background-color: rgb(253, 191, 191);">
     <h2 class="is-size-3 has-text-centered my-5"><%=data.gameName%></h2>
-    <section>
-    <div class="container is-flex is-align-items-center">
+    <div class="container is-flex-wrap-wrap-reverse is-flex is-align-items-center">
     <div class="columns">
     <div class="column is-4" style="min-height:30rem;" >
         <figure>
@@ -22,6 +22,33 @@
             <img class="image show-img my-2" src="<%=data.gameScreen%>" alt="">
         </figure>
         </div>
+        
+        <div class="column is-4" style="max-height:25rem">
+          <div class="m-2 has-text-right">
+            <h1>Total play time:</h1>
+            <p><%=data.playTimeHours%> hours and <%=data.playTimeMinutes%> minutes</p>
+          </div>
+          <% if(data.comments.length > 0){%>
+          <div class="p-2" style="max-height:17rem;border: 2px solid grey; overflow-y: scroll; border-radius: 7px;background-color: rgba(203, 231, 216, 0.812);">
+            <%for(let i=data.comments.length -1; i>=0; i--){%>
+            <h1 class="mt-2" style="text-decoration: underline;">You said:</h1>
+            <p class="my-3"><%=data.comments[i]%></p>
+            <form class="has-text-right" action='/last.am/delete_comment/<%=data._id%>/<%=data.comments[i]%>?_method="PUT"' method="POST">
+              <input class="button is-small delete-button" type="submit" value="delete">
+            </form>
+            <%}%>
+        </div>
+        <%}%>
+        </div>
+        <div class="has-text-right">
+            <a href="/last.am/comment/<%=data._id%>">
+              <input class="button my-2 is-small" type="button" value="Comment">
+            </a>
+            <a href="/last.am/log_time/<%=data._id%>"><input class="button m-2 is-small" type="button" value="log time" /></a>
+
+          </div>
+        
+        
     <div class="column is-4 has-text-centered">
         <h1 class="is-size-5 mt-2">Genre:</h1><br>
         <p class="is-size-6 mb-4 has-text-primary-light"><%=data.genre%></p>
@@ -38,26 +65,7 @@
           <input class="button m-5" type="button" value="Edit Entry">
         </a>
     </div>    
-    <div class="column is-3" style="max-height:25rem">
-    <h1>Total play time:</h1>
-    <p><%=data.playTimeHours%> hours and <%=data.playTimeMinutes%> minutes</p>
-    <% if(data.comments.length > 0){%>
-        <div class="p-2" style="max-height:17rem;border: 2px solid grey; overflow-y: scroll; border-radius: 7px;background-color: rgba(203, 231, 216, 0.812);">
-        <%for(let i=data.comments.length -1; i>=0; i--){%>
-        <h1 class="mt-2" style="text-decoration: underline;">You said:</h1>
-        <p class="my-3"><%=data.comments[i]%></p>
-        <form class="has-text-right" action='/last.am/delete_comment/<%=data._id%>/<%=data.comments[i]%>?_method="PUT"' method="POST">
-        <input class="button is-small" type="submit" value="delete">
-        </form>
-        <%}%>
-        </div>
-        <%}%>
-        <a href="/last.am/comment/<%=data._id%>">
-          <input class="button my-2 is-small" type="button" value="Comment">
-        </a>
-        <a href="/last.am/log_time/<%=data._id%>"><input class="button m-2 is-small" type="button" value="log time" /></a>
-        
-    </div>
+    
     </div>
     </div>
     </section>

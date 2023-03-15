@@ -11,7 +11,7 @@
 
 <body>
   <%-  include('./partials/header.ejs')%>
-  <div class="container column is-6 is-justify-content-space-between">
+  <div class="container column is-6 is-justify-content-space-between" style="margin-top:4rem;">
     <form class="form has-text-centered" action='/last.am/edit_game/<%=data._id%>?_method=PUT' method="POST">
       <input class="input m-1" type="text" name="gameName" value="<%=data.gameName%>" placeholder="Name of game" /><br>
       <input class="input m-1" type="text" name="pub" value="<%=data.pub%>" placeholder="Publisher" />

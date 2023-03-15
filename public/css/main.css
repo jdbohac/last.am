@@ -2,10 +2,14 @@
 
 body{
 background-color: rgb(253, 191, 191);
-min-height:100vh
+min-height:120vh
 }
 .button{
-background-color:rgb(155, 213, 226);
+background-color:rgb(123, 192, 189);
+border: 1px solid rgba(0, 128, 0, 0.338);
+}
+.delete-button{
+background-color: rgba(123, 192, 189, 0.655);
 }
 div::-webkit-scrollbar{
 display:none
@@ -17,4 +21,7 @@ div {
 a{
     text-decoration: none;
     color:black
+}
+img{
+max-height:20rem
 }

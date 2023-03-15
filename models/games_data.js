@@ -7,7 +7,7 @@ module.exports =
         year:'1993',
         genre:'Beat-em Up',
             synopsis: 'An abstract and colorful scrolling beat-em-up, in which one to four players control a team of robotic ninjas who must fight their way through a variety of levels, defeating the game\'s many enemies.The enemies themselves are based entirely around the sport of Baseball; taking the form of Baseballs, Catcher\'s mitts, bats etc.',
-        titleScreen:'https://www.gamesdatabase.org/Media/SYSTEM/Arcade/Title/big/Ninja_Baseball_Bat_Man_-_1993_-_Irem.jpg',
+            titleScreen:'https://speeddemosarchive.com/gfx/NinjaBaseballBatMan_1.jpg',
         gameScreen:'https://www.gamesdatabase.org/Media/SYSTEM/Arcade/Snap/big/Ninja_Baseball_Bat_Man_-_1993_-_Irem.jpg',
     },
     {
@@ -17,7 +17,7 @@ module.exports =
         year:'1991',
         genre:'Beat-em Up',
         synopsis: 'A 6-level, sideways scrolling beat-em-up for 1 or 2 players that defies any logic in either its theme or its graphical approach; that places the players in a dream-like world populated by armies of strange and bizarre creatures. PuLiRuLa\'s plot centres around the world of \'Radishland\'. Each of Radishland\'s six towns is kept running smoothly with the aid of a giant key, which is necessary to keep the world\'s \'time - flow\' moving. The key is stolen by a mysterious enemy and the timeflow is disrupted. Players must fight their way through waves of increasingly abstract enemies in their quest to recover the key and restore time to Radishland. To aid players in their quest, they are each armed with a magical stick, with which they can hit and defeat the game\'s abstract enemies. Players are also armed with a limited number of smart bombs, capable of killing multiple enemies. The smart bombs are as visually unique as the rest of the game; taking the form of such things as a herd of running animals, a purple dancing blob-like man or a man in a giant microwave oven who captures and cooks any on-screen enemies. When killed, the enemies disappear and an animal or townsperson is released from inside the creature.',
-        titleScreen:'https://www.gamesdatabase.org/Media/SYSTEM/Arcade/Title/big/PuLiRuLa_-_1991_-_Taito.jpg',
+        titleScreen:'https://tcrf.net/images/7/70/PuLiRuLa_%28Arcade%29-title.png',
         gameScreen:'https://www.gamesdatabase.org/Media/SYSTEM/Arcade/Snap/big/PuLiRuLa_-_1991_-_Taito.jpg'
     },
     {
@@ -47,7 +47,7 @@ module.exports =
         year:'1985',
         genre:'Shooter',
         synopsis: 'Space Harrier is a sprite-scaling, into-the-screen shoot-em-up set in the "Fantasy Zone"; a surreal, abstract world composed of bright colours and a checkerboard-styled ground. The game\'s enemies are as unique as its setting; featuring prehistoric animals, alien pods, giant mushrooms and, at the end of every stage, a huge, fireball- spitting Chinese dragon. The player\'s on-screen counterpart carries a portable jetpack under his arm, which allows him to fly as well as run along the ground. The jetpack is equipped with a laser, allowing the player to destroy both the game\'s many enemies as well as a variety of obstructions, such as trees and the floating rocks on level 1.',
-        titleScreen:'https://www.gamesdatabase.org/Media/SYSTEM/Arcade/Title/big/Space_Harrier_-_1985_-_Sega.jpg',
+        titleScreen:'https://tcrf.net/images/9/95/SpaceHarrierArcTitle.png',
         gameScreen:'https://www.gamesdatabase.org/Media/SYSTEM/Arcade/Snap/big/Space_Harrier_-_1985_-_Sega.jpg'
     },
     {
@@ -57,7 +57,7 @@ module.exports =
         year:'1994',
         genre:'Fighting',
         synopsis: '10 genetically engineered fighters engage in 1-on-1 combat in a tournament arranged by the sinister \'Ultratech\', the organization behind the genetic creation of the fighters. The tournament soon turns into a battle for survival. Each player starts the game with 2 energy bars, which represent the amount of health each player has for the entire game.Once the first bar is depleted, the player falls, gets up and starts to use the second energy bar.A voice will subsequently announce either \'Round Two\' or \'Killer Instinct!\'.The player who wins the first round gets to keep their remaining energy, and still has the second bar to use in future fights.This gives an advantage to the player who wins the first round. Killer Instinct introduced incredibly complex combos to the fighting genre, as well as including the Fatalities and Humiliations made famous by Midway\'s "Mortal Kombat" Series.',
-        titleScreen:'https://www.gamesdatabase.org/Media/SYSTEM/Arcade/Title/big/Killer_Instinct_-_1994_-_Rare,_Ltd..jpg',
+        titleScreen:'https://tcrf.net/images/e/e5/Ki_title.png',
         gameScreen:'https://www.gamesdatabase.org/Media/SYSTEM/Arcade/Snap/big/Killer_Instinct_-_1994_-_Rare,_Ltd..jpg'
     },
     {
@@ -65,8 +65,9 @@ module.exports =
         dev:'Rare',
         pub:'Rare Ltd.',
         year:'1994',
+        genre:'Beat-em Up',
         synopsis: 'The final, and most gruesome game in the Battletoads series. Unlike the home console games, the arcade version features more intense violence and a touch of adult humor (including a very unique way to hurt enemies twice your size...). Each toad features their own unique set of smash hits which can be executed to finish off the enemies - such as the Drilla Killa, the Battletoad \'Butt and the Big Bad Boot.',
-        titleScreen:'https://www.gamesdatabase.org/Media/SYSTEM/Arcade/Title/big/Battle_Toads_-_1994_-_Rare,_Ltd..jpg',
+        titleScreen:'https://tcrf.net/images/e/e2/BattletoadsArcade-title.png',
         gameScreen:'https://www.gamesdatabase.org/Media/SYSTEM/Arcade/Snap/big/Battle_Toads_-_1994_-_Rare,_Ltd..jpg'
     },
     {

@@ -9,18 +9,18 @@
 </head>
 <body>
 <%-  include('./partials/header.ejs')%>
-    <div class="container column is-6 is-justify-content-space-between">
-    <form class="form has-text-centered" action="/last.am/add_game" method="POST">
-    <input class="input m-1" type="text" name="gameName" placeholder="Name of game" /><br>
-    <input class="input m-1" type="text" name="pub" placeholder="Publisher" />
-    <input class="input m-1" type="text" name="dev" placeholder="Developer" /><br>
-    <input class="input m-1" type="text" name="genre" placeholder="Genre">
-    <input class="input m-1" type="text" name="year" placeholder="Year of release" /><br>
-    <input class="input m-1" type="text" name="titleScreen" placeholder="Title screen img URL" /><br>
-    <input class="input m-1" type="text" name="gameScreen" placeholder="Gameplay screenshot URL" /><br>
-    <textarea class="input m-1" style="height:10rem;" type="text" name="synopsis" placeholder="Write a synopsis for the game" /></textarea>
-    <input class="button" type="submit" value="Add game" />
-    </form>
+    <div class="container column is-6 is-justify-content-space-between" style="margin-top:4rem">
+        <form class="form has-text-centered" action="/last.am/add_game" method="POST">
+            <input class="input m-1" type="text" name="gameName" placeholder="Name of game" /><br>
+            <input class="input m-1" type="text" name="pub" placeholder="Publisher" />
+            <input class="input m-1" type="text" name="dev" placeholder="Developer" /><br>
+            <input class="input m-1" type="text" name="genre" placeholder="Genre">
+            <input class="input m-1" type="text" name="year" placeholder="Year of release" /><br>
+            <input class="input m-1" type="text" name="titleScreen" placeholder="Title screen img URL" /><br>
+            <input class="input m-1" type="text" name="gameScreen" placeholder="Gameplay screenshot URL" /><br>
+            <textarea class="input m-1" style="height:10rem;" type="text" name="synopsis" placeholder="Write a synopsis for the game" /></textarea>
+            <input class="button" type="submit" value="Add game" />
+        </form>
     </div>
 </body>
 </html>

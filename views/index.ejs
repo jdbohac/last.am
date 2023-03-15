@@ -9,29 +9,32 @@
 </head>
 <body>
     <%-  include('./partials/header.ejs')%>
-    <section>
+    <section style="margin-top:4rem;">
     <div class="container">
-    <table class="table is-narrow is-striped is-hoverable is-fullwidth is-mobile mt-4 has-background-danger-light">
+    <table class="table is-narrow is-hoverable is-fullwidth is-mobile mt-4" style="background-color: rgb(245, 203, 203); border-radius: 10px;box-shadow:4px 4px .3rem; color:grey;">
     <%for (let i=data.length -1;i>=0;i--){%>
             <tr>
-                <td valign="middle" align="center">
-                  <a href="/last.am/show/<%=data[i]._id%>">
-                        <div class="container is-flex">
-                            <img class="image is-128x128" src=" <%=data[i].gameScreen%>">
-                        </div>
-                    </a>
-                </td>
-                <td class="is-vcentered">
-                    <a href="/last.am/show/<%=data[i]._id%>">
-                        <%=data[i].gameName%>
-                    </a>
-                </td>
-                <td class="is-vcentered">
-                    <%=data[i].pub%>
-                </td>
-                <td class="is-vcentered">
-                    <%=data[i].year%>
-                </td>
+            
+                <div>
+                    <td valign="middle" align="center">
+                      <a href="/last.am/show/<%=data[i]._id%>">
+                            <div class="my-1">
+                                <img class="image is-128x128" src=" <%=data[i].gameScreen%>">
+                            </div>
+                        </a>
+                    </td>
+                    <td class="is-vcentered">
+                        <a href="/last.am/show/<%=data[i]._id%>">
+                            <%=data[i].gameName%>
+                            </a>
+                    </td>
+                    <td class="is-vcentered">
+                        <%=data[i].pub%>
+                    </td>
+                    <td class="is-vcentered">
+                        <%=data[i].year%>
+                    </td>
+                </div>
             </tr>
     <%}%>
     </table>

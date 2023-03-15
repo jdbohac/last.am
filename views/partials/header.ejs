@@ -1,15 +1,54 @@
-<div class="" style="background-color: rgb(123, 192, 189);border-bottom: 1px solid rgb(97, 88, 88);">
-  <div class="is-flex is-justify-content-center">
-  <figure>
-  <img class=" image is-centered" src="https://i.imgur.com/SHNmSVw.png">
-  </figure>
+<div class="navbar is-fixed-top" style="background-color: rgb(123, 192, 189);border-bottom: 3px solid rgb(40, 138, 123);min-height: 4.5rem; box-shadow:5px 5px .7rem;color:rgba(225, 173, 244, 0.813);">
+  <div class="navbar-brand is-justify-content-flex-end">
+  <a class="navbar-item" href="/last.am">
+    <figure>
+      <img src="https://i.imgur.com/SHNmSVw.png">
+    </figure>
+    </a>
+  <a role="button" class="navbar-burger has-text-right m-2" aria-label="menu" aria-expanded="false" data-target="nav-header">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
   </div>
-  <div class="container is-flex is-justify-content-center">
-    <a href="/last.am">
-      <p class="m-5">Home</p>
-    </a>
-    <a href="/last.am/add_game">
-      <p class="m-5">Add Game</p>
-    </a>
+  <!-- <div class="container is-flex is-flex-direction-column is-justify-content-center"> -->
+  <div class="navbar-menu has-text-right" style="background-color: rgb(123, 192, 189);border-bottom: 1px solid rgb(97, 88, 88);" id="nav-header">
+    <div class="" style="background-color: rgb(123, 192, 189);">
+      </div>
+        <div class="navbar-item">
+        <a href="/last.am/add_game">
+          <p class="">Add Game</p>
+        </a>
+        </div>
+        <div class="navbar-item">
+        <a href="/last.am">Home</a>
+        </div>
+  </div>
+  <div class="navbar-end">
+  </div>
   </div>
 </div>
+<!-- Thanks bulma documentation! https://bulma.io/documentation/components/navbar/  -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+// Get all "navbar-burger" elements
+const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+// Add a click event on each of them
+$navbarBurgers.forEach( el => {
+el.addEventListener('click', () => {
+
+// Get the target from the "data-target" attribute
+const target = el.dataset.target;
+const $target = document.getElementById(target);
+
+// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+el.classList.toggle('is-active');
+$target.classList.toggle('is-active');
+
+});
+});
+
+});
+</script>
