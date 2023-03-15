@@ -20,10 +20,11 @@ app.listen(3000, () => {
 //converts logged minutes to hours for /show route
 app.use('/last.am/show/:id', (req, res, next) => {
   GameDB.findById(req.params.id).then((data) => {
-
+      if(data.playTimeMinutes >= 60){
     for (let i = data.playTimeMinutes; i > 59; i -= 60) {
       GameDB.findByIdAndUpdate(req.params.id, { $inc: { playTimeHours: 1, playTimeMinutes: -60 } }).then((data1) => {
       })
+    }
     }
     next()
   }).catch((error) => {

@@ -12,19 +12,21 @@
 <body>
   <%-  include('./partials/header.ejs')%>
   <section style="margin-top:4rem;">
-    <div class="container">
-    <a style="" href=" /last.am">
-      <div class="has-text-right is-size-1 mr-3 mb-3" style="color:grey;display:block; line-height: .15">
-    _ <br>_ <br>_
-    </div></a>
-      <div class="container-fluid is-flex is-justify-content-space-between is-flex-wrap-wrap mt-5" style="background-color: rgb(245, 203, 203); border-radius: 10px;margin-top:3rem;box-shadow:4px 4px .3rem; color:grey;">
+  <div class="container"> 
+      <div class="has-text-right is-size-1 mr-3" style="color:grey;display:block; line-height: .15;">
+      <a style="color:grey;" href=" /last.am">
+    _<br>_ <br>_ <br>_ 
+    </a>
+    </div>
+    <div style="height: .2rem;"></div>
+      <div class="container is-flex is-justify-content-center is-flex-wrap-wrap mt-5" style="background-color: rgb(245, 203, 203); border-radius: 10px;margin-top:3rem;box-shadow:4px 4px .3rem; color:grey;">
         <%for (let i=data.length -1;i>=0;i--){%>
-        <div class="container column is-3-desktop is-5-mobile m-3 is-flex is-justify-content-center" style="min-width:9rem;border-radius: 5px;background-color: rgb(123, 192, 189);box-shadow:4px 4px .3rem; color:grey;border: 3px solid rgb(40, 138, 123);">
+        <div class="container column is-3-desktop is-5-mobile m-3 is-flex is-justify-content-center" style="min-width:9rem;max-width:14rem;border-radius: 5px;background-color: rgb(123, 192, 189);box-shadow:4px 4px .3rem; color:grey;border: 3px solid rgb(40, 138, 123);">
 
           <div>
               <a href="/last.am/show/<%=data[i]._id%>">
                 <div class="my-1">
-                  <img class="image is-128x128 m-auto" src=" <%=data[i].gameScreen%>">
+                  <img class="image m-auto" style="border-radius:4px; flex-basis:0px;max-height:6rem" src=" <%=data[i].gameScreen%>">
                 </div>
               </a>
               <a href="/last.am/show/<%=data[i]._id%>">
@@ -32,11 +34,12 @@
               <div class="is-vcentered">
               <%=data[i].pub%>
               <%=data[i].year%>
+              </a>
               </div>
           </div>
           </div>
         <%}%>
-    </div>
+        </div>
     </section>
 </body>
 </html>
