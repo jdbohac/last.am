@@ -3,10 +3,11 @@ const express = require('express')
 const methodOverride = require('method-override')
 const app = express()
 const db = mongoose.connection
+const path = require('path')
 const seedDB = require('./models/games_data')
 const GameDB = require('./models/game_schema')
 app.use(methodOverride('_method'));
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 mongoose.connect('mongodb://localhost:27017/games').then((err) => {
     console.log('mongoose running')
@@ -41,13 +42,11 @@ app.get('/last.am', (req, res) => {
 })
 })
 //render /show page with game id
-app.get('/last.am/show/:id', (req, res, next) => {
+app.get('/last.am/show/:id', (req, res) => {
   GameDB.findById(req.params.id).then((data) => {
     res.render('show.ejs',{
       data
     })
-  }).catch((error) => {
-    console.log(error)
   })
 })
 //render form to add new game to db
@@ -58,6 +57,8 @@ app.get('/last.am/add_game', (req, res) => {
 app.get('/last.am/edit/:id', (req, res) => {
   GameDB.findById(req.params.id).then((data) => {
     res.render('edit.ejs',{data})
+  }).catch((error) => {
+    console.log(error)
   })
 })
 //render form for adding comments
@@ -66,12 +67,16 @@ app.get('/last.am/comment/:id', (req,res) => {
     res.render('new_comment.ejs',{
       data
     })
+  }).catch((error) => {
+    console.log(error)
   })
 })
 //render time log page
 app.get('/last.am/log_time/:id', (req, res) => {
   GameDB.findById(req.params.id).then((data) => {
     res.render('log_time.ejs',{data})
+  }).catch((error) => {
+    console.log(error)
   })
 })
 
