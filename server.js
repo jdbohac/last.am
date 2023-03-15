@@ -50,7 +50,7 @@ app.get('/last.am/grid_view', (req, res) => {
   })
 })
 //render /show page with game id
-app.get('/last.am/show/:id', (req, res,next) => {
+app.get('/last.am/show/:id', (req, res) => {
   GameDB.findById(req.params.id).then((data) => {
     res.render('show.ejs',{
       data
@@ -113,7 +113,7 @@ app.post('/last.am/add_game', (req, res) => {
 //delete comments individually
 app.post('/last.am/delete_comment/:id/:index', (req, res) => {
   GameDB.findByIdAndUpdate(req.params.id, 
-  { $pull:{comments:`${req.params.index}`}}).then((err,data) =>{
+  { $pull:{comments:`${req.params.index}`}}).then((data) =>{
     res.redirect(`/last.am/show/${req.params.id}`)
   }).catch((error) => {
     console.log(error)
