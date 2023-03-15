@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <%-  include('./partials/header.ejs')%>
+  <section style="margin-top:4rem;">
+    <div class="container">
+    <a style="" href=" /last.am">
+      <div class="has-text-right is-size-1 mr-3 mb-3" style="color:grey;display:block; line-height: .15">
+    _ <br>_ <br>_
+    </div></a>
+      <div class="container-fluid is-flex is-justify-content-space-evenly is-flex-wrap-wrap mt-5" style="background-color: rgb(245, 203, 203); border-radius: 10px;margin-top:3rem;box-shadow:4px 4px .3rem; color:grey;">
+        <%for (let i=data.length -1;i>=0;i--){%>
+        <div class="container column is-3-desktop is-5-mobile m-3 is-flex is-justify-content-space-evenly" style="min-width:9rem;border-radius: 5px;background-color: rgb(123, 192, 189);box-shadow:4px 4px .3rem; color:grey;">
+
+          <div>
+              <a href="/last.am/show/<%=data[i]._id%>">
+                <div class="my-1">
+                  <img class="image is-128x128" src=" <%=data[i].gameScreen%>">
+                </div>
+              </a>
+              <a href="/last.am/show/<%=data[i]._id%>">
+                <%=data[i].gameName%>
+              <div class="is-vcentered">
+              <%=data[i].pub%>
+              <%=data[i].year%>
+              </div>
+          </div>
+          </div>
+        <%}%>
+    </div>
+    </section>
+</body>
+</html>

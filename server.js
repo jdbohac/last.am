@@ -41,6 +41,13 @@ app.get('/last.am', (req, res) => {
     })
 })
 })
+app.get('/last.am/grid_view', (req, res) => {
+  GameDB.find({}).sort({ gameName: -1 }).then((data) => {
+    res.render('index-grid.ejs', {
+      data
+    })
+  })
+})
 //render /show page with game id
 app.get('/last.am/show/:id', (req, res,next) => {
   GameDB.findById(req.params.id).then((data) => {
