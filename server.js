@@ -68,7 +68,7 @@ app.use('/last.am/list_view', (req, res, next) => {
 //start render routes
 
 //main page, displays all games in db
-app.get('/last.am', (req, res) => {
+app.get('/', (req, res) => {
 if(app.locals.view !==  1){
 app.locals.view = 0
 }
@@ -80,11 +80,11 @@ app.locals.view = 0
 })
 //reroute to main page with list view
 app.get('/last.am/list_view', (req, res) => {
-  res.redirect('/last.am')
+  res.redirect('/')
 })
 //reroute to main page with grid view
 app.get('/last.am/grid_view', (req, res) => {
-  res.redirect('/last.am')
+  res.redirect('/')
 })
 
 //render /show page with game id
