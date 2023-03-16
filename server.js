@@ -141,7 +141,7 @@ app.post('/last.am/log_time/:id', (req, res) => {
 //add game to db
 app.post('/last.am/add_game', (req, res) => {
   GameDB.create(req.body).then((data) => {
-    res.redirect('/last.am')
+    res.redirect('/')
   }).catch((error) => {
   if(error){
     console.log(error)
@@ -163,7 +163,7 @@ app.post('/last.am/delete_comment/:id/:index', (req, res) => {
 //delete db entry from /edit page
 app.delete('/last.am/edit/:id', (req, res) => {
   GameDB.findByIdAndRemove(req.params.id).then((data) => {
-    res.redirect('/last.am')
+    res.redirect('/')
   })
 })
 //edit game details and update db
