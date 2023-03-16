@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/main.css">
-  <title>Last.am | Add New Game</title>
+  <title>last.am || Edit Game Details</title>
 </head>
 
 <body>
@@ -23,10 +23,15 @@
       <textarea class="input m-1" style="height:10rem;" type="text" name="synopsis" placeholder="Write a synopsis for the game"><%=data.synopsis%></textarea>
       <input class="button" type="submit" value="Edit Entry" />
     </form>
-    <form class="has-text-centered m-2" action="/last.am/edit/<%=data._id%>?_method=DELETE" method="POST">
-    <input class="button" type="submit" value="DELETE" />
+    <div class="is-flex is-justify-content-space-between is-center">
+      <a href="/last.am/show/<%= data._id %> ">
+        <input class="button" type="button" value="back">
+      </a>
+    <form action="/last.am/edit/<%=data._id%>?_method=DELETE" method="POST">
+      <input class="button" type="submit" value="DELETE" />
     </form>
-  </div>
+    </div>
+    </div>
 </body>
 
 </html>

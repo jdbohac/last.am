@@ -128,11 +128,11 @@ app.post('/last.am/add_game', (req, res) => {
   })
 })
 //delete comments individually
-app.post('/last.am/delete_comment/:id/:comment', (req, res) => {
+app.post('/last.am/delete_comment/:id/:index', (req, res) => {
   GameDB.findById(req.params.id).then((data) => {
     
   GameDB.findByIdAndUpdate(req.params.id,
-  { $pull:{comments:data.comments[req.params.comment]}}).then((data) =>{
+  { $pull:{comments:data.comments[req.params.index]}}).then((data) =>{
     res.redirect(`/last.am/show/${req.params.id}`)
   }) 
   }).catch((error) => {
