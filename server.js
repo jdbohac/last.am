@@ -6,9 +6,9 @@ const db = mongoose.connection
 const path = require('path')
 const seedDB = require('./models/games_data')
 const GameDB = require('./models/game_schema')
-app.use(methodOverride('_method'));
-app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'));
+app.use(express.static('public'))
 mongoose.connect('mongodb://localhost:27017/games').then((err) => {
     console.log('mongoose running')
 })
@@ -16,21 +16,7 @@ app.listen(3000, () => {
   console.log('port 3000 awaiting orders')
 })
 
-//middleware
-//converts logged minutes to hours for /show route
-app.use('/last.am/show/:id', (req, res, next) => {
-  GameDB.findById(req.params.id).then((data) => {
-      if(data.playTimeMinutes >= 60){
-    for (let i = data.playTimeMinutes; i > 59; i -= 60) {
-      GameDB.findByIdAndUpdate(req.params.id, { $inc: { playTimeHours: 1, playTimeMinutes: -60 } }).then((data1) => {
-      })
-    }
-    }
-    next()
-  }).catch((error) => {
-    console.log(error)
-  })
-})
+
 
 //start render routes
 
@@ -40,6 +26,8 @@ app.get('/last.am', (req, res) => {
     res.render('index.ejs',{
       data
     })
+}).catch((error) => {
+  console.log(error)
 })
 })
 app.get('/last.am/grid_view', (req, res) => {
@@ -47,8 +35,27 @@ app.get('/last.am/grid_view', (req, res) => {
     res.render('index-grid.ejs', {
       data
     })
+  }).catch((error) => {
+    console.log(error)
   })
 })
+
+//middleware
+//converts logged minutes to hours for /show route
+app.use('/last.am/show/:id', (req, res, next) => {
+  GameDB.findById(req.params.id).then((data) => {
+    if (data.playTimeMinutes >= 60) {
+      for (let i = data.playTimeMinutes; i > 59; i -= 60) {
+        GameDB.findByIdAndUpdate(req.params.id, { $inc: { playTimeHours: 1, playTimeMinutes: -60 } }).then((data1) => {
+        })
+      }
+    }
+    next()
+  }).catch((error) => {
+    console.log(error)
+  })
+})
+
 //render /show page with game id
 app.get('/last.am/show/:id', (req, res) => {
   GameDB.findById(req.params.id).then((data) => {
@@ -111,10 +118,13 @@ app.post('/last.am/add_game', (req, res) => {
   })
 })
 //delete comments individually
-app.post('/last.am/delete_comment/:id/:index', (req, res) => {
-  GameDB.findByIdAndUpdate(req.params.id, 
-  { $pull:{comments:`${req.params.index}`}}).then((data) =>{
+app.post('/last.am/delete_comment/:id/:comment', (req, res) => {
+  GameDB.findById(req.params.id).then((data) => {
+    
+  GameDB.findByIdAndUpdate(req.params.id,
+  { $pull:{comments:data.comments[req.params.comment]}}).then((data) =>{
     res.redirect(`/last.am/show/${req.params.id}`)
+  }) 
   }).catch((error) => {
     console.log(error)
   })

@@ -12,7 +12,7 @@
     <p class="my-3">
       <%=data.comments[i]%>
     </p>
-    <form class="has-text-right m-2" action='/last.am/delete_comment/<%=data._id%>/<%=data.comments[i]%>?_method="PUT"' method="POST">
+    <form class="has-text-right m-2" action='/last.am/delete_comment/<%=data._id%>/<%=i%>?_method="PUT"' method="POST">
       <input class="button is-small delete-button" type="submit" value="delete">
     </form>
     <%}%>
