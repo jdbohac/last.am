@@ -4,40 +4,39 @@ const methodOverride = require('method-override')
 const app = express()
 const db = mongoose.connection
 const path = require('path')
+// const { MongoClient } = require("mongodb");
 const seedDB = require('./models/games_data')
 const GameDB = require('./models/game_schema')
 const paginate = require('jw-paginate')
-// require('dotenv.config').config()
+require('dotenv').config()
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'));
 app.use(express.static('public'))
 // mongoose.connect('mongodb://localhost:27017/games').then((err) => {
 //     console.log('mongoose running')
 // })
-app.listen(3000, () => {
-  console.log('port 3000 awaiting orders')
-})
 
 
 
-const { MongoClient } = require("mongodb");
+const PORT = process.env.PORT || 3003;
+const MONGODB_URI = process.env.MONGODB_URI;
+db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
+db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
+db.on('disconnected', () => console.log('mongo disconnected'));
+
 
 // Replace the uri string with your connection string.
-const uri = "mongodb+srv://baggatoast:N13tzsche123@project2.ae928vd.mongodb.net/games?retryWrites=true&w=majority";
+// const uri = "mongodb+srv://baggatoast:N13tzsche123@project2.ae928vd.mongodb.net/games?retryWrites=true&w=majority";
 
-const client = new MongoClient(uri);
-const connectionParams = {
-  useNewUrlParser: true,
-  // useCreateIndex: true,
-  useUnifiedTopology: true
-}
-mongoose.connect(uri, connectionParams)
-  .then(() => {
-    console.log('Connected to the database ')
-  })
-  .catch((err) => {
-    console.error(`Error connecting to the database. n${err}`);
-  })
+// const client = new MongoClient(uri);
+// const connectionParams = {
+//   useNewUrlParser: true,
+//   // useCreateIndex: true,
+//   useUnifiedTopology: true
+// }
+mongoose.connect(MONGODB_URI)
+  
+
 
 
 //middleware
@@ -196,3 +195,6 @@ app.put('/last.am/comment/:id', (req, res) => {
 //   })
 // })
 
+app.listen(PORT, () => {
+  console.log('port 3000 awaiting orders')
+})
