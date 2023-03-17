@@ -1,15 +1,30 @@
 <div class="dropdown is-hoverable">
   <div class="dropdown-trigger">
-    <input class="button mt-3 mx-3" type="button" aria-haspopup="true" aria-controls="list-order" value="list-order  v">
+    <button class="button mt-3 mx-3" style="min-width:8rem" type="button" aria-haspopup="true" aria-controls="list-order">
+    <% if (order == 1) { %>
+     most recent
+    <% } else { %>
+     A-Z
+     <% } %>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+      <path fill="none" d="M0 0h24v24H0z" />
+      <path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z" />
+    </svg></button>
   </div>
   <div class="dropdown-menu" id="list-order" role="menu">
     <div class="dropdown-content" style="background-color: rgba(203, 231, 216, 0.812);">
+      <% if(order == 1){ %>
+      <a href="/last.am/order_alpha">
         <div class="dropdown-item">
-        <a href="/last.am/order_alpha">alphabetical</a>
+        A-Z
         </div>
+        </a>
+        <% } else { %>
+         
         <div class="dropdown-item">
           <a href="/last.am/order_recent">most recent</a>
         </div>
+        <%}%>
     </div>
   </div>
 </div>

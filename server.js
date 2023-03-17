@@ -48,6 +48,16 @@ app.use('/last.am/list_view', (req, res, next) => {
   app.locals.view = 0
   next()
 })
+
+//middleware for ordering index by recently added
+app.use('/last.am/order_recent', (req, res, next) => {
+  app.locals.order = 1
+  next()
+})
+app.get('/last.am/order_recent', (req, res) => {
+  res.redirect('/recent')
+})
+
 //middleware for ordering index alphabetically
 app.use('/last.am/order_alpha', (req, res, next) => {
   app.locals.order = 0
@@ -77,14 +87,7 @@ app.locals.view = 0
     console.log(error)
   })
 })
-//middleware for ordering index by recently added
-app.use('/last.am/order_recent', (req, res, next) => {
-  app.locals.order = 1
-  next()
-})
-app.get('/last.am/order_recent', (req, res) => {
-  res.redirect('/recent')
-})
+
 //most recent index view
 app.get('/recent', (req, res) => {
   if (app.locals.order !== 0) {
