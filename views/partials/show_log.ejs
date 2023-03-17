@@ -6,7 +6,7 @@
     </p>
   </div>
   <% if(data.comments.length> 0){%>
-  <div class="py-2" style="max-height:17rem;border: 2px solid grey; overflow-y: scroll; border-radius: 7px;background-color: rgba(203, 231, 216, 0.812);">
+  <div class="p-2" style="max-height:17rem;border: 2px solid grey; overflow-y: scroll; border-radius: 7px;background-color: rgba(203, 231, 216, 0.812);">
     <%for(let i=data.comments.length -1; i>=0; i--){%>
     <h1 class="mt-2" style="text-decoration: underline;">Someone said:</h1>
     <p class="my-3">
@@ -18,11 +18,21 @@
     <%}%>
         </div>
         <%}%>
-    <div class="has-text-right ">
+    <div class="is-flex is-justify-content-space-around has-text-weight-bold">
       <a href="/last.am/comment/<%=data._id%>">
-        <input class="button my-2 is-small" type="button" value="Comment">
+      <div style="margin-top:10px;padding:4px;border-radius:3px;background-color: rgb(123, 192, 189);border-radius:3px;border:1px solid rgba(40, 138, 123, 0.562)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
+        <path fill="none" d="M0 0h24v24H0z" />
+        <path d="M10 3h4a8 8 0 1 1 0 16v3.5c-5-2-12-5-12-11.5a8 8 0 0 1 8-8z" />
+      </svg>comment
+      </div>
       </a>
-      <a href="/last.am/log_time/<%=data._id%>"><input class="button m-2 is-small" type="button" value="log time" /></a>
+      <div style="margin-top:10px;padding:4px;background-color: rgb(123, 192, 189);border-radius:3px;border:1px solid rgba(40, 138, 123, 0.562)">
+      <a href="/last.am/log_time/<%=data._id%>"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path d="M17.618 5.968l1.453-1.453 1.414 1.414-1.453 1.453a9 9 0 1 1-1.414-1.414zM11 8v6h2V8h-2zM8 1h8v2H8V1z" />
+        </svg>log time</a>
+    </div>
     </div>
   </div>
   <div class="column is-7 is-align-self-flex-start is-offset-4 mb-4" style="max-height: 12rem;overflow-y: scroll;background-color: rgba(203, 231, 216, 0.812);border: 2px solid grey; border-radius: 7px;">
