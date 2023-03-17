@@ -48,7 +48,20 @@ app.use('/last.am/list_view', (req, res, next) => {
   app.locals.view = 0
   next()
 })
-
+app.use('/last.am/order_recent',(req, res, next) => {
+  app.locals.order = 1
+  next()
+})
+app.get('/last.am/order_recent', (req, res) => {
+  res.redirect('/')
+})
+app.use('/last.am/order_alpha',(req, res, next) => {
+app.locals.order = 0
+  next()
+})
+app.get('/last.am/order_alpha', (req, res) => {
+  res.redirect('/')
+})
 
 //start render routes
 
@@ -56,13 +69,38 @@ app.use('/last.am/list_view', (req, res, next) => {
 app.get('/', (req, res) => {
 if(app.locals.view !==  1){
 app.locals.view = 0
-}
+  }
+  if (app.locals.order !== 1) {
+    app.locals.order = 0
+  } else {
+    res.redirect('/recent')
+  }
+  
   GameDB.find({}).sort({gameName:-1}).then((data) => {
     res.render('index.ejs',{
       data
     })
+  }).catch((error) => {
+    console.log(error)
   })
 })
+app.get('/recent', (req, res) => {
+  if (app.locals.order !== 0) {
+  app.locals.order = 1
+  } else{
+    res.redirect('/')
+  }  
+  if (app.locals.view !== 1) {
+    app.locals.view = 0
+  }
+  GameDB.find({}).sort({id:-1}).then((data) => {
+    res.render('index.ejs',{
+      data
+    })
+  }).catch((error) => {
+    console.log(error)
+  })
+  })
 //reroute to main page with list view
 app.get('/last.am/list_view', (req, res) => {
   res.redirect('/')
