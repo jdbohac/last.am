@@ -12,8 +12,7 @@
     <figure class="is-flex is-justify-content-center" style="margin-top:4.5rem;">
     <img src="https://i.imgur.com/IZmTVmi.png">
     </figure>
-    <a href="/last.am/order_recent">most recent</a>
-    <a href="/last.am/order_alpha">alphabetical</a>
+    <%- include('./partials/drop_down.ejs') %>
     <% if (view == 1){%>
     <%- include('./partials/index_grid.ejs') %>
     <%} else {%>

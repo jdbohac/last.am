@@ -48,21 +48,14 @@ app.use('/last.am/list_view', (req, res, next) => {
   app.locals.view = 0
   next()
 })
-app.use('/last.am/order_recent',(req, res, next) => {
-  app.locals.order = 1
-  next()
-})
-app.get('/last.am/order_recent', (req, res) => {
-  res.redirect('/')
-})
-app.use('/last.am/order_alpha',(req, res, next) => {
-app.locals.order = 0
+//middleware for ordering index alphabetically
+app.use('/last.am/order_alpha', (req, res, next) => {
+  app.locals.order = 0
   next()
 })
 app.get('/last.am/order_alpha', (req, res) => {
   res.redirect('/')
 })
-
 //start render routes
 
 //main page, displays all games in db
@@ -84,6 +77,15 @@ app.locals.view = 0
     console.log(error)
   })
 })
+//middleware for ordering index by recently added
+app.use('/last.am/order_recent', (req, res, next) => {
+  app.locals.order = 1
+  next()
+})
+app.get('/last.am/order_recent', (req, res) => {
+  res.redirect('/recent')
+})
+//most recent index view
 app.get('/recent', (req, res) => {
   if (app.locals.order !== 0) {
   app.locals.order = 1
