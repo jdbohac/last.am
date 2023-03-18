@@ -83,8 +83,6 @@ app.locals.view = 0
     res.render('index.ejs',{
       data
     })
-  }).catch((error) => {
-    console.log(error)
   })
 })
 
@@ -102,8 +100,6 @@ app.get('/recent', (req, res) => {
     res.render('index.ejs',{
       data
     })
-  }).catch((error) => {
-    console.log(error)
   })
   })
 //reroute to main page with list view
