@@ -1,4 +1,4 @@
-<div class="column is-4 is-flex is-flex-direction-column is-justify-content-center" style="max-height:25rem">
+<div class="column is-6 is-flex is-flex-direction-column is-justify-content-center" style="max-height:25rem">
   <div class="mb-2 has-text-right">
     <h1>Total play time:</h1>
     <p>
@@ -36,6 +36,9 @@
     </div>
     </div>
   </div>
-  <div class="column is-7 is-align-self-flex-start is-offset-4 mb-4" style="max-height: 12rem;overflow-y: scroll;background-color: rgba(203, 231, 216, 0.812);border: 2px solid grey; border-radius: 7px;">
+  <div class="column is-12 is-align-self-flex-start mb-4" style="max-height: 9rem;overflow-y: scroll;background-color: rgba(203, 231, 216, 0.812);border: 2px solid grey; border-radius: 7px;">
     <p><%=data.synopsis%></p>
   </div>
+  <a href="/last.am/edit/<%=data._id%>">
+    <input class="button" type="button" value="Edit Entry">
+  </a>

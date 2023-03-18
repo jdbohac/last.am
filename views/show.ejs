@@ -10,12 +10,17 @@
 <body>
     <%-  include('./partials/header.ejs')%>
     <section class="section" style="background-color: rgb(238, 169, 169);">
-    <div class="columns is-multiline">
-      <h2 class="column is-6 is-offset-3 is-size-2 has-text-centered my-5"><%=data.gameName%></h2>
+      <h2 class="is-size-2 has-text-centered my-5"><%=data.gameName%></h2>
+      <div class="columns">
         <%- include('./partials/show_imgs.ejs')%>
+      <div class="column">
+        <div class="columns is-multiline">
        <%- include('./partials/show_info.ejs') %>
        <%- include('./partials/show_log.ejs') %>
        </div>
+       </div>
+       </div>
+       </section>
     </section>
 </body>
 </html>
