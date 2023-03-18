@@ -8,13 +8,11 @@
     <title>last.am || Menu</title>
 </head>
 <body>
+    <section class="section mt-2">
     <%-  include('./partials/header.ejs')%>
-    <section class="section mt-5">
     <figure class="is-flex is-justify-content-center">
     <img src="https://i.imgur.com/IZmTVmi.png">
     </figure>
-    </section>
-    <section style="overflow-x: hidden;">
     <%- include('./partials/drop_down.ejs') %>
     <% if (view == 1){%>
     <%- include('./partials/index_grid.ejs') %>
