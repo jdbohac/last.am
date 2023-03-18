@@ -1,29 +1,26 @@
-
-
-      <div class="has-text-right column is-1 is-offset-10 is-size-1" style="color:grey;display:block; line-height: .15;height:40px">
-        <a style="color:grey;" href=" /last.am/list_view">
-          _<br>_ <br>_ <br>_
-        </a>
+<div class="has-text-right column is-1 is-offset-10 is-size-1" style="color:grey;display:block; line-height: .15;height:40px">
+  <a style="color:grey;" href=" /last.am/list_view">
+    _<br>_ <br>_ <br>_
+  </a>
+</div>
+<div class="columns is-flex is-flex-wrap-wrap is-justify-content-center" style="background-color: rgb(245, 203, 203); border-radius: 10px;margin-top:3rem;box-shadow:4px 4px .3rem; color:grey;">
+  <%for (let i=data.length -1;i>=0;i--){%>
+  <div class="column is-3 is-5-mobile m-2" style="border-radius: 5px;background-color: rgb(123, 192, 189);box-shadow:4px 4px .3rem; color:grey;border: 3px solid rgb(40, 138, 123);">
+    <a href="/last.am/show/<%=data[i]._id%>">
+      <div class="container is-3by5" style="">
+        <img class="image m-auto" style=" height:130px;width:90%;border-radius:4px;border: 2px solid rgb(62, 52, 52);" src=" <%=data[i].gameScreen%>">
       </div>
-      <div class="columns is-flex is-flex-wrap-wrap is-justify-content-center" 
-      style="background-color: rgb(245, 203, 203); border-radius: 10px;margin-top:3rem;box-shadow:4px 4px .3rem; color:grey;">
-        <%for (let i=data.length -1;i>=0;i--){%>
-        <div class="column is-3 is-5-mobile m-2" style="border-radius: 5px;background-color: rgb(123, 192, 189);box-shadow:4px 4px .3rem; color:grey;border: 3px solid rgb(40, 138, 123);">
-            <a href="/last.am/show/<%=data[i]._id%>">
-              <div class="container is-3by5" style="">
-                <img class="image m-auto" style=" height:130px;width:90%;border-radius:4px;border: 2px solid rgb(62, 52, 52);" src=" <%=data[i].gameScreen%>">
-              </div>
-            </a>
-            <a href="/last.am/show/<%=data[i]._id%>">
-            <div class="is-size-5 is-flex is-justify-content-space-between is-size-6-mobile has-text-left">
-            <div>
-              <%=data[i].gameName%>
-              </div>
-              <div class="is-flex m-1 is-size-6 is-flex-direction-column is-justify-content-flex-start">
-                <%=data[i].year%>
-                </div>
-                </div>
-            </a>
-            </div>
-      <%}%>
+    </a>
+    <a href="/last.am/show/<%=data[i]._id%>">
+      <div class="is-size-5 is-flex is-justify-content-space-between is-size-6-mobile has-text-left">
+        <div>
+          <%=data[i].gameName%>
+        </div>
+        <div class="is-flex m-1 is-size-6 is-flex-direction-column is-justify-content-flex-start">
+          <%=data[i].year%>
+        </div>
+      </div>
+    </a>
+  </div>
+  <%}%>
       </div>
