@@ -63,7 +63,7 @@ app.use('/last.am/order_recent', (req, res, next) => {
   next()
 })
 app.get('/last.am/order_recent', (req, res) => {
-  res.redirect('/recent')
+  res.redirect('/page/0')
 })
 
 //middleware for ordering index alphabetically
@@ -72,7 +72,7 @@ app.use('/last.am/order_alpha', (req, res, next) => {
   next()
 })
 app.get('/last.am/order_alpha', (req, res) => {
-  res.redirect('/')
+  res.redirect('/page/0')
 })
 //start render routes
 
