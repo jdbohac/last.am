@@ -1,10 +1,10 @@
 
 <div class="columns is-gapless is-3 is-flex is-flex-wrap-wrap is-justify-content-center" style="background-color: rgb(245, 203, 203); border-radius: 10px;margin-top:3rem;box-shadow:4px 4px .3rem; color:grey;">
   <%for (let i=data.length -1;i>=0;i--){%>
-  <div class="column is-flex is-flex-direction-column is-2-widescreen is-3 is-5-mobile m-2" style="border-radius: 5px;background-color: rgb(123, 192, 189);box-shadow:4px -2px .3rem; color:grey;border-right:7px solid rgba(15, 99, 86, 0.411);border-top:3px solid rgba(53, 152, 137, 0.411)">
+  <div class="column is-flex is-flex-direction-column is-2-widescreen is-3 is-5-mobile m-2" style="border-radius: 8px;background-color: rgb(123, 192, 189);box-shadow:4px -2px .3rem; color:grey;border-right:7px solid rgba(15, 99, 86, 0.411);border-top:3px solid rgba(53, 152, 137, 0.411)">
     <a href="/last.am/show/<%=data[i]._id%>">
-      <div class="container p-1" style="">
-        <img class="image m-auto" style=" height:130px;width:100%;border-radius:4px;border: 2px solid rgb(62, 52, 52);" 
+      <div class="p-2" style="border-radius: 3px 3px 0 0;background-color: rgba(54, 42, 42, 0.542);">
+        <img class="image m-auto" style="z-index: 1; height:130px;width:100%;border-radius:4px;border: 2px solid rgba(62, 52, 52, 0.713);" 
         src=" <%=data[i].titleScreen%>">
       </div>
     </a>

@@ -1,35 +1,34 @@
+<div>
 
-  <div >
-      
-      <table class="table is-narrow is-hoverable is-fullwidth" style="border-top:6px solid rgba(245, 184, 184, 0.987);border-right:12px solid rgba(219, 131, 131, 0.616);background-color: rgb(245, 203, 203);margin-top:3rem; border-radius: 10px;box-shadow:10px -1px .7rem; color:rgb(159, 135, 135);">
-      <%for (let i=data.length -1;i>=0;i--){%>
-      <tr class="is-clickable">
-        <div>
-          <td style="width:10rem;" valign="middle" align="left">
-            <a href="/last.am/show/<%=data[i]._id%>">
-              <div class="my-1">
-                <img class="image is-128x128" src=" <%=data[i].titleScreen%>" style="border-radius: 4px;">
-              </div>
-            </a>
-          </td>
-          <td class="is-vcentered has-text-centered">
-            <a href="/last.am/show/<%=data[i]._id%>">
-              <%=data[i].gameName%>
-            </a>
-          </td>
-          <td class="is-vcentered">
-            <a href="/last.am/show/<%=data[i]._id%>">
-              <%=data[i].pub%>
-            </a>
-          </td>
-          <td class="is-vcentered">
-            <a href="/last.am/show/<%=data[i]._id%>">
-              <%=data[i].year%>
-            </a>
-          </td>
-        </div>
-      </tr>
+  <table class="table is-narrow is-hoverable is-fullwidth" style="border-top:6px solid rgba(197, 152, 152, 0.482);border-right:12px solid rgba(154, 108, 108, 0.689);background-color: rgb(245, 203, 203);margin-top:3rem; border-radius: 10px;box-shadow:10px -1px .7rem; color:rgb(126, 89, 89);">
+    <%for (let i=data.length -1;i>=0;i--){%>
+    <tr class="is-clickable" style="border-radius:10px">
+      <div>
+        <td style="width:10rem;" valign="middle" align="left">
+          <a href="/last.am/show/<%=data[i]._id%>">
+            <div class="my-1">
+              <img class="image is-128x128" src=" <%=data[i].titleScreen%>" style="border-radius: 4px;">
+            </div>
+          </a>
+        </td>
+        <td class="is-vcentered has-text-centered">
+          <a href="/last.am/show/<%=data[i]._id%>">
+            <%=data[i].gameName%>
+          </a>
+        </td>
+        <td class="is-vcentered">
+          <a href="/last.am/show/<%=data[i]._id%>">
+            <%=data[i].pub%>
+          </a>
+        </td>
+        <td class="is-vcentered">
+          <a href="/last.am/show/<%=data[i]._id%>">
+            <%=data[i].year%>
+          </a>
+        </td>
+      </div>
+    </tr>
 
-      <%}%>
+    <%}%>
     </table>
     </div>
