@@ -1,7 +1,10 @@
 <div>
 
   <table class="table is-narrow is-hoverable is-fullwidth" style="border-top:4px solid rgba(197, 152, 152, 0.482);border-right:9px solid rgba(124, 85, 85, 0.257);background-color: rgb(245, 203, 203);margin-top:3rem; border-radius: 10px;box-shadow:5px -1px .7rem; color:rgba(151, 100, 100, 0.884);">
-    <%for (let i=data.length -1;i>=0;i--){%>
+    <%let listNum = 0%>
+    <%for (let i=0;i<data.length;i++){%>
+    <% if (i >= (pageNum * 10)&& listNum < 10) {%>
+    <% listNum ++ %>
     <tr class="is-clickable" style="border-radius:10px">
         <td style="width:10rem;" valign="middle" align="left">
           <a href="/last.am/show/<%=data[i]._id%>">
@@ -27,6 +30,11 @@
       </div>
     </tr>
 
-    <%}%>
+    <%}}%>
     </table>
+     <div class="pagination-list">
+       <% for(let i=1, x=0;x<=((data.length-1) /10);i++, x++){ %>
+       <a class="button pagination-link" href="/page/<%=x%>"><%=i%></a>
+       <%}%>
+  </div>
     </div>

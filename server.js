@@ -25,6 +25,14 @@ mongoose.connect(MONGODB_URI)
 
 
 //middleware
+//converts page number route into local variable which determines current page
+app.use('/page/:pageNum', (req, res, next) => {
+  app.locals.pageNum = req.params.pageNum
+  next()
+})
+app.get('/page/:pageNum', (req, res) => {
+  res.redirect('/')
+})
 //converts logged minutes to hours for /show route
 app.use('/last.am/show/:id', (req, res, next) => {
   GameDB.findById(req.params.id).then((data) => {
@@ -70,6 +78,8 @@ app.get('/last.am/order_alpha', (req, res) => {
 
 //main page, displays all games in db
 app.get('/', (req, res) => {
+if(app.locals.pageNum == undefined)
+app.locals.pageNum = 1
 if(app.locals.view !==  1){
 app.locals.view = 0
   }
@@ -79,7 +89,7 @@ app.locals.view = 0
     res.redirect('/recent')
   }
   
-  GameDB.find({}).sort({gameName:-1}).then((data) => {
+  GameDB.find({}).sort({gameName:1}).then((data) => {
     res.render('index.ejs',{
       data
     })
@@ -88,6 +98,8 @@ app.locals.view = 0
 
 //most recent index view
 app.get('/recent', (req, res) => {
+if(app.locals.pageNum == undefined)
+app.locals.pageNum = 0
   if (app.locals.order !== 0) {
   app.locals.order = 1
   } else{
@@ -96,7 +108,7 @@ app.get('/recent', (req, res) => {
   if (app.locals.view !== 1) {
     app.locals.view = 0
   }
-  GameDB.find({}).sort({id:-1}).then((data) => {
+  GameDB.find({}).sort({id:1}).then((data) => {
     res.render('index.ejs',{
       data
     })
