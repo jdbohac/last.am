@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/main.css">
-    <title>last.am || Add Comment</title>
-</head>
-<body>
-<%-  include('./partials/header.ejs')%>
-<section style="margin-top:4rem">
-<h1 class="is-size-2 has-text-centered my-2">What do you think of<br> <%=data.gameName%>?</h1>
 
-<div class="container column is-9 mt-6">
-    <form class="is-large" action="/last.am/comment/<%=data._id%>?_method=PUT" method="POST">
-    <textarea class="input is-primary" placeholder="Your Thoughts here!" style="height: 10rem;" name="comments"></textarea>
-    <input class="button m-2" type="submit" value="Add Comment">
-    <a  href="/last.am/show/<%= data._id %> ">
-      <input class="button m-2" type="button" value="back">
-    </a>
-    </form>
-</div>
-</section>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>last.am || Add Comment</title>
+</head>
+
+<body>
+  <%-  include('./partials/header.ejs')%>
+  <section style="margin-top:4rem">
+    <h1 class="is-size-2 has-text-centered my-2">What do you think of<br> <%=data.gameName%>?</h1>
+
+    <div class="container column is-9 mt-6">
+      <form class="is-large" action="/last.am/comment/<%=data._id%>?_method=PUT" method="POST">
+        <textarea class="input is-primary" placeholder="Your Thoughts here!" style="height: 10rem;" name="comments"></textarea>
+        <input class="button m-2" type="submit" value="Add Comment">
+        <a href="/last.am/show/<%= data._id %> ">
+          <input class="button m-2" type="button" value="back">
+        </a>
+      </form>
+    </div>
+  </section>
 </body>
+
 </html>

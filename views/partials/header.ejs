@@ -4,52 +4,51 @@
       <figure class="">
         <img src="https://i.imgur.com/IZmTVmi.png">
       </figure>
-      </a>
-      <div>
-    <a role="button" class="navbar-burger m-2" aria-label="menu" aria-expanded="false" data-target="nav-header">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
     </a>
+    <div>
+      <a role="button" class="navbar-burger m-2" aria-label="menu" aria-expanded="false" data-target="nav-header">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
   </div>
   <div class="navbar-menu has-text-right" style="background-color: rgb(123, 192, 189);" id="nav-header">
     <div class="" style="background-color: rgb(123, 192, 189); ">
-      </div>
-        <div class="navbar-item">
-          <a href="/last.am/add_game">Add Game
-          </a>
-        </div>
-        <div class="navbar-item" style="">
-          <a href="/page/0">Home</a>
-        </div>
+    </div>
+    <div class="navbar-item">
+      <a href="/last.am/add_game">Add Game
+      </a>
+    </div>
+    <div class="navbar-item" style="">
+      <a href="/page/0">Home</a>
+    </div>
   </div>
   <div class="navbar-end" style="border-bottom: 3px solid rgb(40, 138, 123);">
   </div>
-  </div>
+</div>
 </div>
 <!-- Thanks bulma documentation! https://bulma.io/documentation/components/navbar/  -->
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
 
-document.addEventListener('DOMContentLoaded', () => {
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-// Get all "navbar-burger" elements
-const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    // Add a click event on each of them
+    $navbarBurgers.forEach(el => {
+      el.addEventListener('click', () => {
 
-// Add a click event on each of them
-$navbarBurgers.forEach( el => {
-el.addEventListener('click', () => {
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
 
-// Get the target from the "data-target" attribute
-const target = el.dataset.target;
-const $target = document.getElementById(target);
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
 
-// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-el.classList.toggle('is-active');
-$target.classList.toggle('is-active');
+      });
+    });
 
-});
-});
-
-});
+  });
 </script>

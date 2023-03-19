@@ -15,7 +15,7 @@
     <form class="form has-text-centered" action='/last.am/edit_game/<%=data._id%>?_method=PUT' method="POST">
       <input class="input m-1" type="text" name="gameName" value="<%=data.gameName%>" placeholder="Name of game" /><br>
       <input class="input m-1" type="text" name="pub" value="<%=data.pub%>" placeholder="Publisher" />
-      <input class="input m-1" type="text" name="dev" value="<%=data.dev%>"  placeholder="Developer" /><br>
+      <input class="input m-1" type="text" name="dev" value="<%=data.dev%>" placeholder="Developer" /><br>
       <input class="input m-1" type="text" name="genre" value="<%=data.genre%>" placeholder="Genre">
       <input class="input m-1" type="text" name="year" value="<%=data.year%>" placeholder="Year of release" /><br>
       <input class="input m-1" type="text" name="titleScreen" value="<%=data.titleScreen%>" placeholder="Title screen img URL" /><br>
@@ -27,11 +27,11 @@
       <a href="/last.am/show/<%= data._id %> ">
         <input class="button" type="button" value="back">
       </a>
-    <form action="/last.am/edit/<%=data._id%>?_method=DELETE" method="POST">
-      <input class="button" type="submit" value="DELETE" />
-    </form>
+      <form action="/last.am/edit/<%=data._id%>?_method=DELETE" method="POST">
+        <input class="button" type="submit" value="DELETE" />
+      </form>
     </div>
-    </div>
+  </div>
 </body>
 
 </html>

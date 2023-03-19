@@ -12,21 +12,21 @@
 <body>
   <%-  include('./partials/header.ejs')%>
   <section style="margin-top:4rem">
-  <h1 class="is-size-2 has-text-centered my-2">How long did you play <br> <%=data.gameName%>?</h1>
+    <h1 class="is-size-2 has-text-centered my-2">How long did you play <br> <%=data.gameName%>?</h1>
 
-  <div class="container is-flex is-justify-content-center mt-6">
-    <form class="is-medium" action="/last.am/log_time/<%=data._id%>" method="POST">
-    <h1 class="is-size-4">Hours:</h1><br>
-    <input type="number" placeholder="Hours" value="0" name="playTimeHours" />
-    <h1 class="is-size-4">Minutes:</h1><br>
-      <input type="number" placeholder="minutes" value="0" name="playTimeMinutes" /><br>
-      <input class="button" type="submit" value="Log Time">
-      <a href="/last.am/show/<%= data._id %> ">
-        <input class="button" type="button" value="back">
-      </a>
-    </form>
-  </div>
-</section>
+    <div class="container is-flex is-justify-content-center mt-6">
+      <form class="is-medium" action="/last.am/log_time/<%=data._id%>" method="POST">
+        <h1 class="is-size-4">Hours:</h1><br>
+        <input type="number" placeholder="Hours" value="0" name="playTimeHours" />
+        <h1 class="is-size-4">Minutes:</h1><br>
+        <input type="number" placeholder="minutes" value="0" name="playTimeMinutes" /><br>
+        <input class="button" type="submit" value="Log Time">
+        <a href="/last.am/show/<%= data._id %> ">
+          <input class="button" type="button" value="back">
+        </a>
+      </form>
+    </div>
+  </section>
 </body>
 
 </html>

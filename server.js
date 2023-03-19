@@ -20,7 +20,7 @@ db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 mongoose.connect(MONGODB_URI)
-  
+
 
 
 
@@ -78,19 +78,19 @@ app.get('/last.am/order_alpha', (req, res) => {
 
 //main page, displays all games in db
 app.get('/', (req, res) => {
-if(app.locals.pageNum == undefined)
-app.locals.pageNum = 1
-if(app.locals.view !==  1){
-app.locals.view = 0
+  if (app.locals.pageNum == undefined)
+    app.locals.pageNum = 1
+  if (app.locals.view !== 1) {
+    app.locals.view = 0
   }
   if (app.locals.order !== 1) {
     app.locals.order = 0
   } else {
     res.redirect('/recent')
   }
-  
-  GameDB.find({}).sort({gameName:-1}).then((data) => {
-    res.render('index.ejs',{
+
+  GameDB.find({}).sort({ gameName: -1 }).then((data) => {
+    res.render('index.ejs', {
       data
     })
   })
@@ -98,22 +98,22 @@ app.locals.view = 0
 
 //most recent index view
 app.get('/recent', (req, res) => {
-if(app.locals.pageNum == undefined)
-app.locals.pageNum = 0
+  if (app.locals.pageNum == undefined)
+    app.locals.pageNum = 0
   if (app.locals.order !== 0) {
-  app.locals.order = 1
-  } else{
+    app.locals.order = 1
+  } else {
     res.redirect('/')
-  }  
+  }
   if (app.locals.view !== 1) {
     app.locals.view = 0
   }
-  GameDB.find({}).sort({id:1}).then((data) => {
-    res.render('index.ejs',{
+  GameDB.find({}).sort({ id: 1 }).then((data) => {
+    res.render('index.ejs', {
       data
     })
   })
-  })
+})
 //reroute to main page with list view
 app.get('/last.am/list_view', (req, res) => {
   res.redirect('/')
@@ -126,7 +126,7 @@ app.get('/last.am/grid_view', (req, res) => {
 //render /show page with game id
 app.get('/last.am/show/:id', (req, res) => {
   GameDB.findById(req.params.id).then((data) => {
-    res.render('show.ejs',{
+    res.render('show.ejs', {
       data
     })
   })
@@ -138,15 +138,15 @@ app.get('/last.am/add_game', (req, res) => {
 //render edit game page by id
 app.get('/last.am/edit/:id', (req, res) => {
   GameDB.findById(req.params.id).then((data) => {
-    res.render('edit.ejs',{data})
+    res.render('edit.ejs', { data })
   }).catch((error) => {
     console.log(error)
   })
 })
 //render form for adding comments
-app.get('/last.am/comment/:id', (req,res) => {
+app.get('/last.am/comment/:id', (req, res) => {
   GameDB.findById(req.params.id).then((data) => {
-    res.render('new_comment.ejs',{
+    res.render('new_comment.ejs', {
       data
     })
   }).catch((error) => {
@@ -156,7 +156,7 @@ app.get('/last.am/comment/:id', (req,res) => {
 //render time log page
 app.get('/last.am/log_time/:id', (req, res) => {
   GameDB.findById(req.params.id).then((data) => {
-    res.render('log_time.ejs',{data})
+    res.render('log_time.ejs', { data })
   }).catch((error) => {
     console.log(error)
   })
@@ -168,30 +168,34 @@ app.get('/last.am/log_time/:id', (req, res) => {
 
 //adds time to log in hours/minutes
 app.post('/last.am/log_time/:id', (req, res) => {
-  GameDB.findByIdAndUpdate(req.params.id, 
-  {$inc:{playTimeHours:req.body.playTimeHours,
-    playTimeMinutes:req.body.playTimeMinutes}}).then((data) => {
-    res.redirect(`/last.am/show/${req.params.id}`)
-  })
+  GameDB.findByIdAndUpdate(req.params.id,
+    {
+      $inc: {
+        playTimeHours: req.body.playTimeHours,
+        playTimeMinutes: req.body.playTimeMinutes
+      }
+    }).then((data) => {
+      res.redirect(`/last.am/show/${req.params.id}`)
+    })
 })
 //add game to db
 app.post('/last.am/add_game', (req, res) => {
   GameDB.create(req.body).then((data) => {
     res.redirect('/')
   }).catch((error) => {
-  if(error){
-    console.log(error)
+    if (error) {
+      console.log(error)
     }
   })
 })
 //delete comments individually
 app.post('/last.am/delete_comment/:id/:index', (req, res) => {
   GameDB.findById(req.params.id).then((data) => {
-    
-  GameDB.findByIdAndUpdate(req.params.id,
-  { $pull:{comments:data.comments[req.params.index]}}).then((data) =>{
-    res.redirect(`/last.am/show/${req.params.id}`)
-  }) 
+
+    GameDB.findByIdAndUpdate(req.params.id,
+      { $pull: { comments: data.comments[req.params.index] } }).then((data) => {
+        res.redirect(`/last.am/show/${req.params.id}`)
+      })
   }).catch((error) => {
     console.log(error)
   })
@@ -212,7 +216,7 @@ app.put('/last.am/edit_game/:id', (req, res) => {
 })
 //adds comment into array of strings
 app.put('/last.am/comment/:id', (req, res) => {
-  GameDB.findByIdAndUpdate(req.params.id,{$push:req.body}).then((data) => {
+  GameDB.findByIdAndUpdate(req.params.id, { $push: req.body }).then((data) => {
     res.redirect(`/last.am/show/${req.params.id}`)
   }).catch((error) => {
     console.log(error)

@@ -6,35 +6,35 @@
     <% if (i < ((data.length)-(pageNum * 10))&& listNum < 10) {%>
     <% listNum ++ %>
     <tr class="is-clickable" style="border-radius:6px">
-        <td style="width:10rem;" valign="middle" align="left">
-          <a href="/last.am/show/<%=data[i]._id%>">
-            <div class="my-1">
-              <img class="image is-128x128" src=" <%=data[i].titleScreen%>" style="border-radius: 4px;">
-          </a>
-        </td>
-        <td class="is-vcentered has-text-centered">
-          <a href="/last.am/show/<%=data[i]._id%>">
-            <%=data[i].gameName%>
-          </a>
-        </td>
-        <td class="is-vcentered">
-          <a href="/last.am/show/<%=data[i]._id%>">
-            <%=data[i].pub%>
-          </a>
-        </td>
-        <td class="is-vcentered">
-          <a href="/last.am/show/<%=data[i]._id%>">
-            <%=data[i].year%>
-          </a>
-        </td>
-      </div>
-    </tr>
+      <td style="width:10rem;" valign="middle" align="left">
+        <a href="/last.am/show/<%=data[i]._id%>">
+          <div class="my-1">
+            <img class="image is-128x128" src=" <%=data[i].titleScreen%>" style="border-radius: 4px;">
+        </a>
+      </td>
+      <td class="is-vcentered has-text-centered">
+        <a href="/last.am/show/<%=data[i]._id%>">
+          <%=data[i].gameName%>
+        </a>
+      </td>
+      <td class="is-vcentered">
+        <a href="/last.am/show/<%=data[i]._id%>">
+          <%=data[i].pub%>
+        </a>
+      </td>
+      <td class="is-vcentered">
+        <a href="/last.am/show/<%=data[i]._id%>">
+          <%=data[i].year%>
+        </a>
+      </td>
+</div>
+</tr>
 
-    <%}}%>
-    </table>
-     <div class="pagination-list">
-       <% for(let i=1, x=0;x<=((data.length-1) /10);i++, x++){ %>
-       <a class="button pagination-link" href="/page/<%=x%>"><%=i%></a>
-       <%}%>
+<%}}%>
+</table>
+<div class="pagination-list">
+  <% for(let i=1, x=0;x<=((data.length-1) /10);i++, x++){ %>
+  <a class="button pagination-link" href="/page/<%=x%>"><%=i%></a>
+  <%}%>
   </div>
     </div>
