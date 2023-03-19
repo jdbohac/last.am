@@ -89,7 +89,7 @@ app.locals.view = 0
     res.redirect('/recent')
   }
   
-  GameDB.find({}).sort({gameName:1}).then((data) => {
+  GameDB.find({}).sort({gameName:-1}).then((data) => {
     res.render('index.ejs',{
       data
     })
