@@ -4,13 +4,11 @@ last.am is an app for archiving arcade games, scrobbling comments and logging pl
 This app was developed using Node.js, MongoDB, Express and Bulma. 
 It took many hours of watching videos and reading documnetation for me to fully unsderestand the Bulma columns system
 but I believe I managed to make it work for my needs. The design of the page is responsive and should look decent
-on just about any device.
+on just about any device. Pagination was done with JS logic. It could definitely be a bit more robust and should maybe be done using queries but noentheless it functions as intended.
 
     For now everything is logged to a single database with no user authentication but I would like to implement this at a later date.
     I wouldn't feel comfortable adding this feature without the full ability to encrypt user information so as
-    to not be responsible for user information being compromised. 
-    
-    I would also like to implement pagination or a 'load more' content feature so the app isn't having to load all items at once. 
+    to not be responsible for user information being compromised.  
     
     Another feature I would like to implement is a database search feature so users wouldn't have to scroll through entries to find the one they are looking for.
     
