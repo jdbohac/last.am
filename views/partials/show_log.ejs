@@ -13,27 +13,30 @@
       "<%=data.comments[i]%>"
     </p>
     <form class="has-text-right my-2" action='/last.am/delete_comment/<%=data._id%>/<%=i%>?_method="PUT"' method="POST">
-      <input class="button is-small delete-button" type="submit" value="delete">
+      <button class="" type="submit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" d="M0 0h24v24H0z" />
+        <path d="M7 6V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5zm2-2v2h6V4H9z" fill="rgba(238,169,169,1)" />
+      </svg></button>
     </form>
     <%}%>
         </div>
         <%}%>
     <div class="is-flex is-justify-content-space-around has-text-weight-bold">
       <a href="/last.am/comment/<%=data._id%>">
-      <div style="margin-top:10px;padding:4px;border-radius:3px;background-color: rgb(123, 192, 189);border-radius:3px;border:1px solid rgba(40, 138, 123, 0.562)">comment
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-        <path fill="none" d="M0 0H24V24H0z" />
-        <path d="M21 3c.552 0 1 .448 1 1v14c0 .552-.448 1-1 1H6.455L2 22.5V4c0-.552.448-1 1-1h18zM10.962 8.1l-.447-.688C8.728 8.187 7.5 9.755 7.5 11.505c0 .995.277 1.609.792 2.156.324.344.837.589 1.374.589.966 0 1.75-.784 1.75-1.75 0-.92-.711-1.661-1.614-1.745-.16-.015-.324-.012-.479.01v-.092c.006-.422.092-1.633 1.454-2.466l.185-.107-.447-.688zm4.553-.688c-1.787.775-3.015 2.343-3.015 4.093 0 .995.277 1.609.792 2.156.324.344.837.589 1.374.589.966 0 1.75-.784 1.75-1.75 0-.92-.711-1.661-1.614-1.745-.16-.015-.324-.012-.479.01 0-.313-.029-1.762 1.639-2.665z" fill="rgba(82,60,60,1)" />
-      </svg>
-      </div>
+        <div style="margin-top:10px;padding:4px;border-radius:3px;background-color: rgb(123, 192, 189);border-radius:3px;border:1px solid rgba(40, 138, 123, 0.562)">comment
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="none" d="M0 0H24V24H0z" />
+            <path d="M21 3c.552 0 1 .448 1 1v14c0 .552-.448 1-1 1H6.455L2 22.5V4c0-.552.448-1 1-1h18zM10.962 8.1l-.447-.688C8.728 8.187 7.5 9.755 7.5 11.505c0 .995.277 1.609.792 2.156.324.344.837.589 1.374.589.966 0 1.75-.784 1.75-1.75 0-.92-.711-1.661-1.614-1.745-.16-.015-.324-.012-.479.01v-.092c.006-.422.092-1.633 1.454-2.466l.185-.107-.447-.688zm4.553-.688c-1.787.775-3.015 2.343-3.015 4.093 0 .995.277 1.609.792 2.156.324.344.837.589 1.374.589.966 0 1.75-.784 1.75-1.75 0-.92-.711-1.661-1.614-1.745-.16-.015-.324-.012-.479.01 0-.313-.029-1.762 1.639-2.665z" fill="rgba(82,60,60,1)" />
+          </svg>
+        </div>
       </a>
       <div style="margin-top:10px;padding:4px;background-color: rgb(123, 192, 189);border-radius:3px;border:1px solid rgba(40, 138, 123, 0.562)">
-      <a href="/last.am/log_time/<%=data._id%>">log time
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-        <path fill="none" d="M0 0h24v24H0z" />
-        <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(90,81,81,1)" />
-      </svg></a>
-    </div>
+        <a href="/last.am/log_time/<%=data._id%>">log time
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(90,81,81,1)" />
+          </svg></a>
+      </div>
     </div>
   </div>
   <div class="column is-12 is-align-self-flex-start mb-4" style="max-height: 9rem;overflow-y: scroll;background-color: rgba(203, 231, 216, 0.812);border: 2px solid grey; border-radius: 7px;">
