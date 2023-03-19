@@ -1,7 +1,7 @@
 
 <div class="columns is-gapless is-3 is-flex is-flex-wrap-wrap is-justify-content-center" style="background-color: rgb(245, 203, 203); border-radius: 10px;margin-top:3rem;box-shadow:4px 4px .3rem; color:grey;">
   <%for (let i=data.length -1;i>=0;i--){%>
-  <div class="column is-flex is-flex-direction-column is-2-widescreen is-3 is-5-mobile m-2" style="border-radius: 5px;background-color: rgb(123, 192, 189);box-shadow:4px 4px .3rem; color:grey;border-right:7px solid rgba(15, 99, 86, 0.411);border-bottom:3px solid rgba(15, 99, 86, 0.411)">
+  <div class="column is-flex is-flex-direction-column is-2-widescreen is-3 is-5-mobile m-2" style="border-radius: 5px;background-color: rgb(123, 192, 189);box-shadow:4px -2px .3rem; color:grey;border-right:7px solid rgba(15, 99, 86, 0.411);border-top:3px solid rgba(53, 152, 137, 0.411)">
     <a href="/last.am/show/<%=data[i]._id%>">
       <div class="container p-1" style="">
         <img class="image m-auto" style=" height:130px;width:100%;border-radius:4px;border: 2px solid rgb(62, 52, 52);" 
@@ -9,11 +9,11 @@
       </div>
     </a>
     <a href="/last.am/show/<%=data[i]._id%>">
-      <div class="is-size-6 m-1" style="border-radius:3px;">
+      <div class="" style="border-radius:3px;height:100%">
       <div class="column is-4 is-offset-8 has-text-right p-1" style="">
         <%=data[i].year%>
       </div>
-      <div style="height:100%">
+      <div class="p-1" style="">
           <%=data[i].gameName%>
         </div>
         
