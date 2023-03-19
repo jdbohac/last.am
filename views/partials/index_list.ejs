@@ -1,11 +1,11 @@
 <div>
 
-  <table class="table is-narrow is-hoverable is-fullwidth" style="border-top:4px solid rgba(197, 152, 152, 0.482);border-right:9px solid rgba(124, 85, 85, 0.257);background-color: rgb(245, 203, 203);margin-top:3rem; border-radius: 10px;box-shadow:5px -1px .7rem; color:rgba(151, 100, 100, 0.884);">
+  <table class="table is-narrow is-hoverable is-fullwidth" style="border-top:6px solid rgba(197, 152, 152, 0.411);border-right:12px solid rgba(154, 105, 105, 0.328);background-color: rgb(245, 203, 203);margin-top:3rem; border-radius: 6px;box-shadow:5px -1px .7rem; color:rgba(151, 100, 100, 0.884);">
     <%let listNum = 0%>
     <%for (let i=data.length;i>=0;i--){%>
     <% if (i < ((data.length)-(pageNum * 10))&& listNum < 10) {%>
     <% listNum ++ %>
-    <tr class="is-clickable" style="border-radius:10px">
+    <tr class="is-clickable" style="border-radius:6px">
         <td style="width:10rem;" valign="middle" align="left">
           <a href="/last.am/show/<%=data[i]._id%>">
             <div class="my-1">
