@@ -1,0 +1,17 @@
+<div class="pagination is-centered role navigation px-5">
+  <% if(pageNum > 0){ %>
+  <a class="button pagination-previous" href="/page/<%= pageNum -1 %>">
+    << /a>
+      <% } %>
+      <div class="pagination-list">
+        <% for(let i=1, x=0;x<=((data.length-1) /10);i++, x++){ %>
+        <% if(x != pageNum){ %>
+        <a class="button pagination-link" href="/page/<%=x%>"><%=i%></a>
+        <%} }%>
+      </div>
+
+      <% if(pageNum < ((data.length/10)-1)){ %>
+      <a class="button pagination-next" href="/page/<%= parseInt(pageNum) +1 %>">
+        ></a>
+      <% } %>
+</div>
