@@ -1,23 +1,23 @@
 <div>
 
-  <table class="table is-narrow is-hoverable is-fullwidth" style="border-top:6px solid rgba(197, 152, 152, 0.411);border-right:12px solid rgba(154, 105, 105, 0.328);background-color: rgb(245, 203, 203);margin-top:3rem; border-radius: 6px;box-shadow:5px -1px .7rem; color:rgba(151, 100, 100, 0.884);">
+  <table class="table is-narrow is-hoverable is-fullwidth" style="border-top:6px solid rgba(241, 162, 162, 0.375);background-color: rgb(245, 203, 203);margin-top:3rem; border-radius: 4px;box-shadow:5px 4px .7rem; color:rgba(151, 100, 100, 0.884);">
     <%let listNum = 0%>
-    <%for (let i=data.length;i>=0;i--){%>
+    <%for (let i=data.length -1;i>=0;i--){%>
     <% if (i < ((data.length)-(pageNum * 10))&& listNum < 10) {%>
     <% listNum ++ %>
-    <tr class="is-clickable" style="border-radius:6px">
-      <td style="width:10rem;" valign="middle" align="left">
+    <tr class="is-clickable" style="border-radius:4px;border-right:12px solid rgba(154, 105, 105, 0.328);">
+      <td style="width:10rem;" valign="middle" align="">
         <a href="/last.am/show/<%=data[i]._id%>">
           <div class="my-1">
             <img class="image is-128x128" src=" <%=data[i].titleScreen%>" style="border-radius: 4px;">
         </a>
       </td>
-      <td class="is-vcentered has-text-centered">
+      <td class="has-text-centered is-vcentered">
         <a href="/last.am/show/<%=data[i]._id%>">
           <%=data[i].gameName%>
         </a>
       </td>
-      <td class="is-vcentered">
+      <td class="is-vcentered is-hidden-mobile">
         <a href="/last.am/show/<%=data[i]._id%>">
           <%=data[i].pub%>
         </a>
